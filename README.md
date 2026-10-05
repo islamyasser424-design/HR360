@@ -1,75 +1,149 @@
-# 📊 Human Resources (HR) Analytics & Management Dashboard
+# 🏢 HR360 — People Analytics & Executive Workforce Intelligence Dashboard
 
-[![Google Apps Script](https://img.shields.io/badge/Google_Apps_Script-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://developers.google.com/apps-script)
-[![Google Sheets](https://img.shields.io/badge/Google_Sheets-34A853?style=for-the-badge&logo=google-sheets&logoColor=white)](https://sheets.google.com)
-[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![Domain](https://img.shields.io/badge/Domain-HR%20Analytics-9333ea?style=for-the-badge)]()
+[![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)](https://powerbi.microsoft.com/)
+[![DAX](https://img.shields.io/badge/DAX-Calculations-0078D4?style=for-the-badge&logo=microsoft&logoColor=white)](https://learn.microsoft.com/en-us/dax/)
+[![Power BI Project](https://img.shields.io/badge/PBIP-Developer_Mode-green?style=for-the-badge)]()
+[![Domain](https://img.shields.io/badge/Domain-People_Analytics-9333ea?style=for-the-badge)]()
 [![Status](https://img.shields.io/badge/Status-Completed-brightgreen?style=for-the-badge)]()
 
-An interactive, serverless Human Resources Management System (HRMS) and Executive Analytics Portal engineered using **Google Apps Script** and **Google Sheets**. Designed to track headcount demographics, analyze attrition dynamics, monitor turnover costs, and streamline employee lifecycle operations.
+An executive-level, interactive **People Analytics Dashboard (HR360)** built in **Microsoft Power BI (PBIP Developer Mode)**. Designed to provide HR leaders and C-suite executives with end-to-end visibility into workforce demographics, retention drivers, compensation equity, and root-cause attrition diagnostics across **1,470+ employees**.
 
 ---
 
 ## 📌 Table of Contents
-- [📖 Overview](#-overview)
-- [🎯 Core Functional Modules](#-core-functional-modules)
-- [📊 Key Performance Indicators (KPIs)](#-key-performance-indicators-kpis)
-- [🛠️ Architecture & Data Modeling](#️-architecture--data-modeling)
+- [📖 Executive Summary](#-executive-summary)
+- [🖥️ Dashboard Preview & Page Breakdown](#️-dashboard-preview--page-breakdown)
+  - [1. HR Overview](#1--hr-overview-executive-summary)
+  - [2. Current Employees](#2--current-employees-workforce-profile)
+  - [3. Attrition Analysis](#3--attrition-analysis-root-cause-diagnostics)
+  - [4. Employee Profile Tooltip](#4--employee-profile-context-card)
+- [💡 Key Strategic Insights](#-key-strategic-insights)
+- [📐 Data Model & DAX Measures](#-data-model--dax-measures)
 - [📂 Repository Structure](#-repository-structure)
-- [🚀 Deployment & Setup Guide](#-deployment--setup-guide)
+- [🚀 How to Open and Run](#-how-to-open-and-run)
 - [👤 Author & Connect](#-author--connect)
 
 ---
 
-## 📖 Overview
+## 📖 Executive Summary
 
-Human resources analytics provides decision-makers with the operational visibility needed to optimize workforce retention, manage compensation structures, and maintain department-level capacity. 
+Retaining top talent and predicting turnover risks are among the highest-priority operational challenges in human capital management. 
 
-This cloud-native solution combines the real-time persistence of **Google Sheets** as a database layer with an asynchronous **Google Apps Script (`Code.gs`)** backend and a responsive single-page web interface (`index.html`).
-
----
-
-## 🎯 Core Functional Modules
-
-* **Workforce Demographics & Headcount:** Real-time visibility into active employee counts, gender distribution, departmental breakdown, and tenure distribution.
-* **Attrition & Retention Analysis:** Continuous tracking of voluntary and involuntary exits with automated attrition rate calculations.
-* **Turnover Financial Impact:** Quantitative modeling of turnover costs based on salary benchmarks and rehiring overhead multipliers.
-* **Departmental & Payroll Allocation:** Budgetary breakdown evaluating compensation distributions across organizational units.
-* **CRUD Employee Administration:** Intuitive data entry forms for onboarding, updating employee records, tracking leave requests, and logging attendance.
+**HR360** transforms raw employee demographic and operational records into clear, actionable intelligence:
+* **Headcount & Demographics:** Real-time visibility into active employee distribution, gender split, age bands, and departmental staffing.
+* **Attrition Diagnostics:** Identifying high-risk departments, vulnerable job roles, and burnout triggers (such as excessive overtime).
+* **AI-Powered Exploration:** Leveraging Power BI's **Decomposition Tree** to interactively split and drill into attrition drivers on the fly.
+* **Modern PBIP Architecture:** Stored using the Power BI Project (`.pbip`) format with TMDL metadata, enabling Git version control and team collaboration.
 
 ---
 
-## 📊 Key Performance Indicators (KPIs)
+## 🖥️ Dashboard Preview & Page Breakdown
 
-| KPI | Calculation / Definition | Business Impact |
+### 1. 📊 HR Overview (Executive Summary)
+The high-level command center providing instant snapshot metrics for executive decision-makers.
+
+![HR Overview](assets/01_HR_Overview.png)
+
+* **Key KPIs:** Total Headcount (`1,470`), Active Workforce (`1,233`), Exits (`237`), Baseline Attrition Rate (`16.1%`), Average Monthly Salary (`$6,503`), Average Job Satisfaction (`2.73 / 4`).
+* **Visual Highlights:**
+  * **Headcount by Department:** R&D represents the largest operational share, followed by Sales and HR.
+  * **Employees by Job Role:** Breakdown across sales executives, research scientists, lab technicians, etc.
+  * **Workforce Composition:** Gender distribution (`60% Male`, `40% Female`).
+  * **Age & Income Distribution:** Generational clusters (peak in `26–35` age bracket) and compensation progression by job level.
+
+---
+
+### 2. 👥 Current Employees (Workforce Profile)
+A deep-dive page focused exclusively on the retained workforce (`1,233` active employees) to analyze engagement, compensation, and stability.
+
+![Current Employees](assets/02_Current_Employees.png)
+
+* **Key KPIs:** Active Employees (`1,233`), Average Age (`37.6 yrs`), Average Monthly Income (`$6,833`), Average Company Tenure (`7.4 yrs`), Training Frequency (`2.8 sessions/year`), Work-Life Balance Rating (`2.78 / 4`).
+* **Visual Highlights:**
+  * **Salary Slabs:** Distribution across income tiers (`Upto 5k`, `5k–10k`, `10k–15k`, `15k+`).
+  * **Gender Pay Equity:** Monthly income mapped by seniority level and gender.
+  * **Tenure Milestones:** Retention longevity peaking at 5–10 years of service.
+  * **Satisfaction vs. Travel:** Correlating departmental satisfaction with business travel frequency.
+
+---
+
+### 3. 🔍 Attrition Analysis (Root-Cause Diagnostics)
+A targeted diagnostic page uncovering the root causes, demographic segments, and operational friction points behind the `237` employee departures.
+
+![Attrition Analysis](assets/03_Attrition_Analysis.png)
+
+* **Key KPIs:** Total Exits (`237`), Attrition Rate (`16.1%`), **Overtime Attrition Rate (`30.5%`)**, Highest-Risk Department (`Sales`), Highest-Risk Role (`Sales Representative`), Highest-Risk Age Group (`18–25`).
+* **Visual Highlights:**
+  * **Overtime Impact:** Employees working overtime experience an attrition rate of **30.5%** — almost double the organization average.
+  * **Departure Rates by Role:** Sales Representatives and Laboratory Technicians face the steepest turnover rates.
+  * **Satisfaction Heatmap:** Cross-tabulation of job satisfaction vs. departure rates.
+  * **Decomposition Tree:** Interactive root-cause AI visual that dynamically breaks down attrition rates across user-selected dimensions (Department ➔ Salary Slab ➔ Age Group).
+
+---
+
+### 4. 📇 Employee Profile (Context Card)
+A focused summary view designed for tooltip drill-through and granular cohort inspection.
+
+![Employee Profile](assets/04_Employee_Profile.png)
+
+* Provides dynamic contextual KPIs when hovering over or slicing specific employee cohorts.
+* Displays standardized metric definitions (e.g., Attrition Rate formula, overtime denominator rules) for governance and consistency.
+
+---
+
+## 💡 Key Strategic Insights
+
+| Finding | Observation | Recommended Strategic Action |
 | :--- | :--- | :--- |
-| **Active Headcount** | Total current active employee records | Evaluates capacity and workforce scalability |
-| **Attrition Rate** | $\frac{\text{Exits in Period}}{\text{Average Headcount}} \times 100$ | Measures retention health and cultural stability |
-| **Turnover Cost Impact** | $\sum (\text{Exited Salary} \times \text{Cost Multiplier})$ | Quantifies bottom-line financial drain from attrition |
-| **Avg Tenure (Years)** | $\frac{\sum \text{Years of Service}}{\text{Active Headcount}}$ | Assesses institutional memory and employee loyalty |
-| **Department Payroll Ratio** | $\frac{\text{Dept Payroll}}{\text{Total Organization Payroll}} \times 100$ | Identifies organizational resource skew and overhead |
+| 🔥 **Overtime Burnout** | Overtime employees experience a **30.5%** departure rate (vs baseline 16.1%). | Conduct workload audits, automate repetitive tasks, and enforce compensatory rest periods. |
+| 📉 **Sales Rep Turnover** | Sales Representatives show the highest turnover among all job titles. | Re-evaluate sales quota feasibility, enhance commission structures, and improve onboarding mentorship. |
+| 🎓 **Early Career Flight** | Age cohort `18–25` exhibits the highest generational attrition rate. | Implement clear fast-track promotion paths, continuous skill development, and peer buddy programs. |
+| 💰 **Entry-Level Compensation** | Employees in the `Upto 5k` salary slab have significantly higher departure propensity. | Benchmark entry-level salaries against regional industry percentiles to eliminate compensation vulnerability. |
 
 ---
 
-## 🛠️ Architecture & Data Modeling
+## 📐 Data Model & DAX Measures
 
-```mermaid
-flowchart LR
-    A["Google Sheet Database\n(HR_Data)"] <--> B["Google Apps Script Backend\n(Code.gs)"]
-    B <--> C["Web App Client UI\n(index.html)"]
-    C --> D["Executive KPI Cards"]
-    C --> E["Dynamic Charts & Breakdowns"]
-    C --> F["Employee Roster & Management"]
+The solution utilizes a clean Semantic Model with explicit DAX measures for consistent metric governance across all visual layers:
+
+### Core DAX Measures:
+```dax
+// Total Employees
+Total Employees = DISTINCTCOUNT ( HR_Analytics[EmpID] )
+
+// Active Workforce
+Active Employees = 
+CALCULATE ( 
+    [Total Employees], 
+    HR_Analytics[Attrition] = "No" 
+)
+
+// Total Departures
+Total Attrition = 
+CALCULATE ( 
+    [Total Employees], 
+    HR_Analytics[Attrition] = "Yes" 
+)
+
+// Attrition Rate Percentage
+Attrition Rate % = 
+DIVIDE ( [Total Attrition], [Total Employees], 0 )
+
+// Overtime Attrition Impact
+Attrition Overtime % = 
+DIVIDE ( 
+    CALCULATE ( [Total Employees], HR_Analytics[Attrition] = "Yes", HR_Analytics[OverTime] = "Yes" ), 
+    [Total Attrition], 
+    0 
+)
+
+// Average Tenure
+Average Tenure = 
+AVERAGEX ( 
+    VALUES ( HR_Analytics[EmpID] ), 
+    CALCULATE ( MAX ( HR_Analytics[YearsAtCompany] ) ) 
+)
 ```
-
-### Schema Attributes (`HR_Data`):
-* `EmpID`: Unique alphanumeric employee identifier.
-* `EmployeeName`: Full legal employee name.
-* `Department`: Operational division (Engineering, Sales, Marketing, HR, Finance, Operations).
-* `Position`: Organizational role and hierarchy title.
-* `HireDate` / `ExitDate`: Temporal markers for tenure and cohort tracking.
-* `Salary`: Compensation metric for financial and turnover loss models.
-* `Status`: Lifecycle flag (`Active`, `Terminated`, `On Leave`).
 
 ---
 
@@ -77,43 +151,47 @@ flowchart LR
 
 ```
 hr-dashboard/
-├── Code.gs         # Server-side Apps Script: Sheets API integrations & KPI computations
-├── index.html      # Responsive frontend: Executive dashboards, charts & forms
-└── README.md       # Project architecture, metric definitions & setup guide
+├── .gitignore
+├── README.md                                  # Executive documentation & architecture
+├── assets/                                    # High-resolution dashboard screenshots
+│   ├── 01_HR_Overview.png
+│   ├── 02_Current_Employees.png
+│   ├── 03_Attrition_Analysis.png
+│   └── 04_Employee_Profile.png
+├── Data/
+│   └── HR_Analytics.csv                       # Cleaned raw dataset (1,470 records)
+├── HR_Analytics_Dashboard.pbip                # Power BI Project file (Developer Mode)
+├── HR_Analytics_Dashboard.Report/             # Report layout, custom themes & visuals
+└── HR_Analytics_Dashboard.SemanticModel/      # TMDL model definition, tables & DAX measures
 ```
 
 ---
 
-## 🚀 Deployment & Setup Guide
+## 🚀 How to Open and Run
 
-### 1. Initialize Google Sheet Database
-1. Create a new Google Sheet named **`HR_Analytics_Database`**.
-2. Rename the active sheet tab to **`HR_Data`**.
+### Prerequisites:
+* **Microsoft Power BI Desktop** (May 2023 release or newer with PBIP / TMDL support).
 
-### 2. Set Up Google Apps Script
-1. Inside the Google Sheet, navigate to **Extensions** → **Apps Script**.
-2. Copy the contents of [`Code.gs`](Code.gs) into the script editor.
-3. Add an HTML file named `index.html` and paste the contents of [`index.html`](index.html).
-
-### 3. Deploy Web Application
-1. Click **Deploy** → **New Deployment**.
-2. Select **Web App** as the deployment type.
-3. Set **Execute as:** `Me` and **Who has access:** `Anyone within organization` (or `Anyone`).
-4. Copy the generated Web App URL to access the live dashboard.
+### Steps:
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/islamyasser424-design/hr-dashboard.git
+   cd hr-dashboard
+   ```
+2. **Open the project:**
+   * Double-click on `HR_Analytics_Dashboard.pbip` to launch the complete report and data model in Power BI Desktop.
+3. **Explore & Interact:**
+   * Use the left navigation pane to seamlessly toggle between **HR Overview**, **Current Employees**, and **Attrition Analysis**.
+   * Use top slicers (Department, Gender, Job Role, Age Group, Marital Status, Business Travel, OverTime) to cross-filter all visualizations simultaneously.
 
 ---
 
 ## 👤 Author & Connect
 
-**Islam Yasser**  
-*Data Analyst & Business Intelligence Specialist*
-
-* 🌐 **Portfolio Website:** [islamyasser424-design.github.io/portfolio-](https://islamyasser424-design.github.io/portfolio-/)
-* 💼 **LinkedIn Profile:** [linkedin.com/in/islam-yasser-55048b378](https://www.linkedin.com/in/islam-yasser-55048b378/)
-* 🐙 **GitHub Profile:** [@islamyasser424-design](https://github.com/islamyasser424-design)
-* ✉️ **Email:** [islamyasser424@gmail.com](mailto:islamyasser424@gmail.com)
+* **Islam Yasser**
+* **GitHub:** [@islamyasser424-design](https://github.com/islamyasser424-design)
+* **Email:** [islamyasser424@gmail.com](mailto:islamyasser424@gmail.com)
 
 ---
-<p align="center">
-  <sub>Part of the Business Intelligence & Enterprise Analytics Portfolio. Engineered with modern cloud standards.</sub>
-</p>
+
+⭐ *If you find this project insightful or useful for your analytics portfolio, consider giving it a star!*

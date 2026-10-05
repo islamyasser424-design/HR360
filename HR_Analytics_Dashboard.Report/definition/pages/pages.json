@@ -1,0 +1,11 @@
+{
+  "activePageName": "HR_Overview",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.0.0/schema.json",
+  "pageOrder": [
+    "HR_Overview",
+    "Current_Employees",
+    "Attrition_Analysis",
+    "ttAttrition_Context",
+    "Employee_Segment_Detail"
+  ]
+}

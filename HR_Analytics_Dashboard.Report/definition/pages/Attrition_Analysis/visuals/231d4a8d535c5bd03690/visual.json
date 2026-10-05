@@ -1,0 +1,203 @@
+{
+    "visual":  {
+                   "visualType":  "decompositionTreeVisual",
+                   "drillFilterOtherVisuals":  true,
+                   "visualContainerObjects":  {
+                                                  "background":  [
+                                                                     {
+                                                                         "properties":  {
+                                                                                            "color":  {
+                                                                                                          "solid":  {
+                                                                                                                        "color":  {
+                                                                                                                                      "expr":  {
+                                                                                                                                                   "Literal":  {
+                                                                                                                                                                   "Value":  "\u0027#FFFFFF\u0027"
+                                                                                                                                                               }
+                                                                                                                                               }
+                                                                                                                                  }
+                                                                                                                    }
+                                                                                                      },
+                                                                                            "transparency":  {
+                                                                                                                 "expr":  {
+                                                                                                                              "Literal":  {
+                                                                                                                                              "Value":  "0D"
+                                                                                                                                          }
+                                                                                                                          }
+                                                                                                             },
+                                                                                            "show":  {
+                                                                                                         "expr":  {
+                                                                                                                      "Literal":  {
+                                                                                                                                      "Value":  "true"
+                                                                                                                                  }
+                                                                                                                  }
+                                                                                                     }
+                                                                                        }
+                                                                     }
+                                                                 ],
+                                                  "border":  [
+                                                                 {
+                                                                     "properties":  {
+                                                                                        "color":  {
+                                                                                                      "solid":  {
+                                                                                                                    "color":  {
+                                                                                                                                  "expr":  {
+                                                                                                                                               "Literal":  {
+                                                                                                                                                               "Value":  "\u0027#E2E8F0\u0027"
+                                                                                                                                                           }
+                                                                                                                                           }
+                                                                                                                              }
+                                                                                                                }
+                                                                                                  },
+                                                                                        "show":  {
+                                                                                                     "expr":  {
+                                                                                                                  "Literal":  {
+                                                                                                                                  "Value":  "true"
+                                                                                                                              }
+                                                                                                              }
+                                                                                                 }
+                                                                                    }
+                                                                 }
+                                                             ],
+                                                  "title":  [
+                                                                {
+                                                                    "properties":  {
+                                                                                       "text":  {
+                                                                                                    "expr":  {
+                                                                                                                 "Literal":  {
+                                                                                                                                 "Value":  "\u0027Historical Attrition Exploration\u0027"
+                                                                                                                             }
+                                                                                                             }
+                                                                                                },
+                                                                                       "show":  {
+                                                                                                    "expr":  {
+                                                                                                                 "Literal":  {
+                                                                                                                                 "Value":  "true"
+                                                                                                                             }
+                                                                                                             }
+                                                                                                }
+                                                                                   }
+                                                                }
+                                                            ]
+                                              },
+                   "query":  {
+                                 "queryState":  {
+                                                    "Analyze":  {
+                                                                    "projections":  [
+                                                                                        {
+                                                                                            "field":  {
+                                                                                                          "Measure":  {
+                                                                                                                          "Expression":  {
+                                                                                                                                             "SourceRef":  {
+                                                                                                                                                               "Entity":  "HR_Analytics"
+                                                                                                                                                           }
+                                                                                                                                         },
+                                                                                                                          "Property":  "Total Attrition"
+                                                                                                                      }
+                                                                                                      },
+                                                                                            "nativeQueryRef":  "Total Attrition",
+                                                                                            "queryRef":  "HR_Analytics.Total Attrition"
+                                                                                        }
+                                                                                    ]
+                                                                },
+                                                    "ExplainBy":  {
+                                                                      "projections":  [
+                                                                                          {
+                                                                                              "field":  {
+                                                                                                            "Column":  {
+                                                                                                                           "Expression":  {
+                                                                                                                                              "SourceRef":  {
+                                                                                                                                                                "Entity":  "HR_Analytics"
+                                                                                                                                                            }
+                                                                                                                                          },
+                                                                                                                           "Property":  "Department"
+                                                                                                                       }
+                                                                                                        },
+                                                                                              "nativeQueryRef":  "Department",
+                                                                                              "queryRef":  "HR_Analytics.Department"
+                                                                                          },
+                                                                                          {
+                                                                                              "field":  {
+                                                                                                            "Column":  {
+                                                                                                                           "Expression":  {
+                                                                                                                                              "SourceRef":  {
+                                                                                                                                                                "Entity":  "HR_Analytics"
+                                                                                                                                                            }
+                                                                                                                                          },
+                                                                                                                           "Property":  "JobRole"
+                                                                                                                       }
+                                                                                                        },
+                                                                                              "nativeQueryRef":  "JobRole",
+                                                                                              "queryRef":  "HR_Analytics.JobRole"
+                                                                                          },
+                                                                                          {
+                                                                                              "field":  {
+                                                                                                            "Column":  {
+                                                                                                                           "Expression":  {
+                                                                                                                                              "SourceRef":  {
+                                                                                                                                                                "Entity":  "HR_Analytics"
+                                                                                                                                                            }
+                                                                                                                                          },
+                                                                                                                           "Property":  "OverTime"
+                                                                                                                       }
+                                                                                                        },
+                                                                                              "nativeQueryRef":  "OverTime",
+                                                                                              "queryRef":  "HR_Analytics.OverTime"
+                                                                                          },
+                                                                                          {
+                                                                                              "field":  {
+                                                                                                            "Column":  {
+                                                                                                                           "Expression":  {
+                                                                                                                                              "SourceRef":  {
+                                                                                                                                                                "Entity":  "HR_Analytics"
+                                                                                                                                                            }
+                                                                                                                                          },
+                                                                                                                           "Property":  "SalarySlab"
+                                                                                                                       }
+                                                                                                        },
+                                                                                              "nativeQueryRef":  "SalarySlab",
+                                                                                              "queryRef":  "HR_Analytics.SalarySlab"
+                                                                                          },
+                                                                                          {
+                                                                                              "field":  {
+                                                                                                            "Column":  {
+                                                                                                                           "Expression":  {
+                                                                                                                                              "SourceRef":  {
+                                                                                                                                                                "Entity":  "HR_Analytics"
+                                                                                                                                                            }
+                                                                                                                                          },
+                                                                                                                           "Property":  "AgeGroup"
+                                                                                                                       }
+                                                                                                        },
+                                                                                              "nativeQueryRef":  "AgeGroup",
+                                                                                              "queryRef":  "HR_Analytics.AgeGroup"
+                                                                                          },
+                                                                                          {
+                                                                                              "field":  {
+                                                                                                            "Column":  {
+                                                                                                                           "Expression":  {
+                                                                                                                                              "SourceRef":  {
+                                                                                                                                                                "Entity":  "HR_Analytics"
+                                                                                                                                                            }
+                                                                                                                                          },
+                                                                                                                           "Property":  "JobSatisfaction"
+                                                                                                                       }
+                                                                                                        },
+                                                                                              "nativeQueryRef":  "JobSatisfaction",
+                                                                                              "queryRef":  "HR_Analytics.JobSatisfaction"
+                                                                                          }
+                                                                                      ]
+                                                                  }
+                                                }
+                             }
+               },
+    "name":  "231d4a8d535c5bd03690",
+    "$schema":  "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+    "position":  {
+                     "y":  402,
+                     "x":  748,
+                     "width":  512,
+                     "height":  303,
+                     "z":  1000,
+                     "tabOrder":  0
+                 }
+}

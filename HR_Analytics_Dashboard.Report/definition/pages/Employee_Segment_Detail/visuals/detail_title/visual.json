@@ -1,0 +1,88 @@
+{
+    "position":  {
+                     "width":  500,
+                     "y":  15,
+                     "z":  1000,
+                     "x":  145,
+                     "tabOrder":  0,
+                     "height":  38
+                 },
+    "name":  "detail_title",
+    "$schema":  "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+    "visual":  {
+                   "drillFilterOtherVisuals":  true,
+                   "objects":  {
+                                   "text":  [
+                                                {
+                                                    "properties":  {
+                                                                       "text":  {
+                                                                                    "expr":  {
+                                                                                                 "Literal":  {
+                                                                                                                 "Value":  "\u0027Employee Segment Detail | Drill-through View\u0027"
+                                                                                                             }
+                                                                                             }
+                                                                                }
+                                                                   }
+                                                }
+                                            ]
+                               },
+                   "visualContainerObjects":  {
+                                                  "background":  [
+                                                                     {
+                                                                         "properties":  {
+                                                                                            "color":  {
+                                                                                                          "solid":  {
+                                                                                                                        "color":  {
+                                                                                                                                      "expr":  {
+                                                                                                                                                   "Literal":  {
+                                                                                                                                                                   "Value":  "\u0027transparent\u0027"
+                                                                                                                                                               }
+                                                                                                                                               }
+                                                                                                                                  }
+                                                                                                                    }
+                                                                                                      },
+                                                                                            "transparency":  {
+                                                                                                                 "expr":  {
+                                                                                                                              "Literal":  {
+                                                                                                                                              "Value":  "0D"
+                                                                                                                                          }
+                                                                                                                          }
+                                                                                                             },
+                                                                                            "show":  {
+                                                                                                         "expr":  {
+                                                                                                                      "Literal":  {
+                                                                                                                                      "Value":  "false"
+                                                                                                                                  }
+                                                                                                                  }
+                                                                                                     }
+                                                                                        }
+                                                                     }
+                                                                 ],
+                                                  "border":  [
+                                                                 {
+                                                                     "properties":  {
+                                                                                        "color":  {
+                                                                                                      "solid":  {
+                                                                                                                    "color":  {
+                                                                                                                                  "expr":  {
+                                                                                                                                               "Literal":  {
+                                                                                                                                                               "Value":  "\u0027none\u0027"
+                                                                                                                                                           }
+                                                                                                                                           }
+                                                                                                                              }
+                                                                                                                }
+                                                                                                  },
+                                                                                        "show":  {
+                                                                                                     "expr":  {
+                                                                                                                  "Literal":  {
+                                                                                                                                  "Value":  "false"
+                                                                                                                              }
+                                                                                                              }
+                                                                                                 }
+                                                                                    }
+                                                                 }
+                                                             ]
+                                              },
+                   "visualType":  "actionButton"
+               }
+}

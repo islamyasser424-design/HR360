@@ -1,0 +1,69 @@
+{
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "CurrentEmployeesOnly",
+        "ordinal": 0,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "HR_Analytics"
+              }
+            },
+            "Property": "Attrition"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "h",
+              "Entity": "HR_Analytics",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "h"
+                          }
+                        },
+                        "Property": "Attrition"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'No'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User",
+        "isHiddenInViewMode": true,
+        "isLockedInViewMode": true
+      }
+    ]
+  },
+  "width": 1280,
+  "displayName": "Current Employees",
+  "height": 720,
+  "displayOption": "FitToPage",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "Current_Employees"
+}

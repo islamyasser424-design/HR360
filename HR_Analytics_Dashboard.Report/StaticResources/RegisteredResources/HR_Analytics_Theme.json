@@ -1,0 +1,118 @@
+{
+  "name": "HR 360 Modern Theme",
+  "dataColors": [
+    "#2563EB",
+    "#0D9488",
+    "#EF4444",
+    "#6366F1",
+    "#F59E0B",
+    "#1E3A8A",
+    "#06B6D4",
+    "#64748B"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#0F172A",
+  "tableAccent": "#2563EB",
+  "visualStyles": {
+    "page": {
+      "*": {
+        "background": [
+          {
+            "color": { "solid": { "color": "#F8FAFC" } },
+            "transparency": 0
+          }
+        ],
+        "outspace": [
+          {
+            "color": { "solid": { "color": "#F1F5F9" } },
+            "transparency": 0
+          }
+        ]
+      }
+    },
+    "*": {
+      "*": {
+        "title": [
+          {
+            "show": true,
+            "fontColor": { "solid": { "color": "#0F172A" } },
+            "fontSize": 12,
+            "fontFamily": "Segoe UI Semibold"
+          }
+        ],
+        "labels": [
+          {
+            "color": { "solid": { "color": "#475569" } },
+            "fontSize": 10,
+            "fontFamily": "Segoe UI"
+          }
+        ],
+        "background": [
+          {
+            "show": true,
+            "color": { "solid": { "color": "#FFFFFF" } },
+            "transparency": 0
+          }
+        ],
+        "border": [
+          {
+            "show": true,
+            "color": { "solid": { "color": "#E2E8F0" } },
+            "radius": 10
+          }
+        ]
+      }
+    },
+    "card": {
+      "*": {
+        "labels": [
+          {
+            "color": { "solid": { "color": "#0F172A" } },
+            "fontSize": 20,
+            "fontFamily": "Segoe UI Semibold",
+            "labelDisplayUnits": 1
+          }
+        ],
+        "categoryLabels": [
+          {
+            "show": true,
+            "color": { "solid": { "color": "#64748B" } },
+            "fontSize": 9.5,
+            "fontFamily": "Segoe UI"
+          }
+        ]
+      }
+    },
+    "cardVisual": {
+      "*": {
+        "callout": [
+          {
+            "color": { "solid": { "color": "#0F172A" } },
+            "fontSize": 20,
+            "fontFamily": "Segoe UI Semibold",
+            "labelDisplayUnits": 1
+          }
+        ]
+      }
+    },
+    "slicer": {
+      "*": {
+        "header": [
+          {
+            "show": true,
+            "fontColor": { "solid": { "color": "#1E293B" } },
+            "fontSize": 9.5,
+            "fontFamily": "Segoe UI Semibold"
+          }
+        ],
+        "items": [
+          {
+            "fontColor": { "solid": { "color": "#334155" } },
+            "fontSize": 9,
+            "fontFamily": "Segoe UI"
+          }
+        ]
+      }
+    }
+  }
+}

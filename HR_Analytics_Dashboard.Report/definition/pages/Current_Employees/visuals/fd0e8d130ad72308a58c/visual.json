@@ -1,0 +1,133 @@
+{
+    "visual":  {
+                   "visualType":  "clusteredColumnChart",
+                   "drillFilterOtherVisuals":  true,
+                   "visualContainerObjects":  {
+                                                  "background":  [
+                                                                     {
+                                                                         "properties":  {
+                                                                                            "color":  {
+                                                                                                          "solid":  {
+                                                                                                                        "color":  {
+                                                                                                                                      "expr":  {
+                                                                                                                                                   "Literal":  {
+                                                                                                                                                                   "Value":  "\u0027#FFFFFF\u0027"
+                                                                                                                                                               }
+                                                                                                                                               }
+                                                                                                                                  }
+                                                                                                                    }
+                                                                                                      },
+                                                                                            "transparency":  {
+                                                                                                                 "expr":  {
+                                                                                                                              "Literal":  {
+                                                                                                                                              "Value":  "0D"
+                                                                                                                                          }
+                                                                                                                          }
+                                                                                                             },
+                                                                                            "show":  {
+                                                                                                         "expr":  {
+                                                                                                                      "Literal":  {
+                                                                                                                                      "Value":  "true"
+                                                                                                                                  }
+                                                                                                                  }
+                                                                                                     }
+                                                                                        }
+                                                                     }
+                                                                 ],
+                                                  "border":  [
+                                                                 {
+                                                                     "properties":  {
+                                                                                        "color":  {
+                                                                                                      "solid":  {
+                                                                                                                    "color":  {
+                                                                                                                                  "expr":  {
+                                                                                                                                               "Literal":  {
+                                                                                                                                                               "Value":  "\u0027#E2E8F0\u0027"
+                                                                                                                                                           }
+                                                                                                                                           }
+                                                                                                                              }
+                                                                                                                }
+                                                                                                  },
+                                                                                        "show":  {
+                                                                                                     "expr":  {
+                                                                                                                  "Literal":  {
+                                                                                                                                  "Value":  "true"
+                                                                                                                              }
+                                                                                                              }
+                                                                                                 }
+                                                                                    }
+                                                                 }
+                                                             ],
+                                                  "title":  [
+                                                                {
+                                                                    "properties":  {
+                                                                                       "text":  {
+                                                                                                    "expr":  {
+                                                                                                                 "Literal":  {
+                                                                                                                                 "Value":  "\u0027Job Satisfaction\u0027"
+                                                                                                                             }
+                                                                                                             }
+                                                                                                },
+                                                                                       "show":  {
+                                                                                                    "expr":  {
+                                                                                                                 "Literal":  {
+                                                                                                                                 "Value":  "true"
+                                                                                                                             }
+                                                                                                             }
+                                                                                                }
+                                                                                   }
+                                                                }
+                                                            ]
+                                              },
+                   "query":  {
+                                 "queryState":  {
+                                                    "Y":  {
+                                                              "projections":  [
+                                                                                  {
+                                                                                      "field":  {
+                                                                                                    "Measure":  {
+                                                                                                                    "Expression":  {
+                                                                                                                                       "SourceRef":  {
+                                                                                                                                                         "Entity":  "HR_Analytics"
+                                                                                                                                                     }
+                                                                                                                                   },
+                                                                                                                    "Property":  "Active Employees"
+                                                                                                                }
+                                                                                                },
+                                                                                      "nativeQueryRef":  "Active Employees",
+                                                                                      "queryRef":  "HR_Analytics.Active Employees"
+                                                                                  }
+                                                                              ]
+                                                          },
+                                                    "Category":  {
+                                                                     "projections":  [
+                                                                                         {
+                                                                                             "field":  {
+                                                                                                           "Column":  {
+                                                                                                                          "Expression":  {
+                                                                                                                                             "SourceRef":  {
+                                                                                                                                                               "Entity":  "HR_Analytics"
+                                                                                                                                                           }
+                                                                                                                                         },
+                                                                                                                          "Property":  "JobSatisfaction"
+                                                                                                                      }
+                                                                                                       },
+                                                                                             "nativeQueryRef":  "JobSatisfaction",
+                                                                                             "queryRef":  "HR_Analytics.JobSatisfaction"
+                                                                                         }
+                                                                                     ]
+                                                                 }
+                                                }
+                             }
+               },
+    "name":  "fd0e8d130ad72308a58c",
+    "$schema":  "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+    "position":  {
+                     "y":  390,
+                     "x":  470,
+                     "width":  215,
+                     "height":  152,
+                     "z":  1000,
+                     "tabOrder":  0
+                 }
+}
