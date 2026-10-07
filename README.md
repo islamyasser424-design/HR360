@@ -217,7 +217,7 @@ SWITCH(
 ## 📂 Repository Structure
 
 ```
-hr-dashboard/
+HR360/
 ├── .gitignore
 ├── README.md                                  # Complete executive documentation & visual showcase
 ├── assets/                                    # High-resolution screenshots (Light, Dark, Tooltip, Q&A)
@@ -248,8 +248,8 @@ hr-dashboard/
 ### Steps
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/islamyasser424-design/hr-dashboard.git
-   cd hr-dashboard
+   git clone https://github.com/islamyasser424-design/HR360.git
+   cd HR360
    ```
 2. **Launch the project:**
    * Double-click **`HR360_Interactive.pbip`**.
