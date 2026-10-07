@@ -1,0 +1,16 @@
+{
+  "name": "HR360Reference",
+  "dataColors": [
+    "#2C69D7",
+    "#20A79F",
+    "#1D324B",
+    "#8ACEC5",
+    "#96B4E6",
+    "#BDDAD5",
+    "#7D94AD",
+    "#D56367"
+  ],
+  "background": "#F3F5F6",
+  "foreground": "#1D324B",
+  "tableAccent": "#20A79F"
+}

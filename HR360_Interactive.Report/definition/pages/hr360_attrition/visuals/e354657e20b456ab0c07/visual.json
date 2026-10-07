@@ -1,0 +1,380 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "e354657e20b456ab0c07",
+  "position": {
+    "x": 1524,
+    "y": 328,
+    "z": 25000,
+    "height": 190,
+    "width": 362,
+    "tabOrder": 25000
+  },
+  "visual": {
+    "visualType": "deneb7E15AEF80B9E4D4F8E12924291ECE89A",
+    "query": {
+      "queryState": {
+        "dataset": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "HR_Analytics"
+                    }
+                  },
+                  "Property": "OverTime"
+                }
+              },
+              "queryRef": "HR_Analytics.OverTime",
+              "nativeQueryRef": "OverTime"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "HR_Analytics"
+                    }
+                  },
+                  "Property": "Attrition Rate %"
+                }
+              },
+              "queryRef": "HR_Analytics.Attrition Rate %",
+              "nativeQueryRef": "Attrition Rate %"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "vega": [
+        {
+          "properties": {
+            "jsonSpec": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\"$schema\":\"https://vega.github.io/schema/vega/v5.json\",\"background\":\"transparent\",\"autosize\":\"none\",\"padding\":{\"left\":42,\"right\":14,\"top\":18,\"bottom\":31},\"signals\":[{\"name\":\"width\",\"update\":\"max(40,pbiContainer.width-56)\"},{\"name\":\"height\",\"update\":\"max(40,pbiContainer.height-49)\"}],\"data\":[{\"name\":\"dataset\"}],\"marks\":[{\"name\":\"bars\",\"type\":\"rect\",\"from\":{\"data\":\"dataset\"},\"encode\":{\"update\":{\"fill\":{\"value\":\"#D95F68\"},\"fillOpacity\":{\"signal\":\"datum.__selected__ == ''off'' ? 0.28 : 1\"},\"cursor\":{\"value\":\"pointer\"},\"tooltip\":{\"signal\":\"{\\\"OverTime\\\":datum[\\\"OverTime\\\"],\\\"Attrition Rate %\\\":format(datum[\\\"Attrition Rate %\\\"],\\\".1%\\\")}\"},\"x\":{\"signal\":\"scale(\\\"category\\\",datum[\\\"OverTime\\\"])\"},\"width\":{\"signal\":\"bandwidth(''category'')\"},\"y\":{\"scale\":\"value\",\"field\":\"Attrition Rate %\"},\"y2\":{\"scale\":\"value\",\"value\":0},\"cornerRadiusTopLeft\":{\"value\":10},\"cornerRadiusTopRight\":{\"value\":10}},\"hover\":{\"fillOpacity\":{\"value\":0.8}}}}],\"config\":{\"font\":\"Segoe UI\",\"axis\":{\"domain\":false,\"ticks\":false,\"labelColor\":\"#65768A\",\"labelFontSize\":11,\"labelPadding\":7,\"title\":null,\"gridColor\":\"#EAF0F4\"},\"legend\":{\"labelColor\":\"#65768A\",\"labelFontSize\":10,\"title\":null,\"symbolType\":\"circle\",\"symbolSize\":65}},\"scales\":[{\"name\":\"category\",\"type\":\"band\",\"domain\":{\"data\":\"dataset\",\"field\":\"OverTime\",\"sort\":true},\"range\":[0,{\"signal\":\"width\"}],\"paddingInner\":0.38,\"paddingOuter\":0.16},{\"name\":\"value\",\"type\":\"linear\",\"domain\":{\"data\":\"dataset\",\"field\":\"Attrition Rate %\"},\"range\":[{\"signal\":\"height\"},0],\"zero\":true,\"nice\":true}],\"axes\":[{\"scale\":\"category\",\"orient\":\"bottom\",\"grid\":false,\"labelLimit\":100},{\"scale\":\"value\",\"orient\":\"left\",\"grid\":true,\"gridScale\":\"category\",\"tickCount\":3,\"format\":\".0%\",\"zindex\":0}]}'"
+                }
+              }
+            },
+            "jsonConfig": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{}'"
+                }
+              }
+            },
+            "provider": {
+              "expr": {
+                "Literal": {
+                  "Value": "'vega'"
+                }
+              }
+            },
+            "renderMode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'svg'"
+                }
+              }
+            },
+            "enableTooltips": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableContextMenu": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableContextMenuSelector": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableSelection": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "selectionMaxDataPoints": {
+              "expr": {
+                "Literal": {
+                  "Value": "250D"
+                }
+              }
+            },
+            "selectionMode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'simple'"
+                }
+              }
+            },
+            "version": {
+              "expr": {
+                "Literal": {
+                  "Value": "'6.4.0'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "stateManagement": [
+        {
+          "properties": {
+            "viewportHeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "115D"
+                }
+              }
+            },
+            "viewportWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "328D"
+                }
+              }
+            },
+            "supportFieldConfiguration": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\"OverTime\":{\"highlight\":false,\"highlightStatus\":false,\"highlightComparator\":false,\"format\":false,\"formatted\":false,\"names\":false},\"Attrition Rate %\":{\"highlight\":false,\"highlightStatus\":false,\"highlightComparator\":false,\"format\":true,\"formatted\":true,\"names\":false}}'"
+                }
+              }
+            },
+            "denebMetaVersion": {
+              "expr": {
+                "Literal": {
+                  "Value": "'2'"
+                }
+              }
+            },
+            "consolidateFieldParameters": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "developer": [
+        {
+          "properties": {
+            "version": {
+              "expr": {
+                "Literal": {
+                  "Value": "'2.0.0.0'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Rate by overtime'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1D324B'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#EDF0F1'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "22D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Rate by overtime'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualTooltip": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "type": {
+              "expr": {
+                "Literal": {
+                  "Value": "'ReportPage'"
+                }
+              }
+            },
+            "section": {
+              "expr": {
+                "Literal": {
+                  "Value": "'tt_EmployeeProfile'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

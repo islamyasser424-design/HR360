@@ -1,0 +1,548 @@
+table HR_Analytics
+	lineageTag: a45359f1-de77-49f9-ae9f-16c422d8a377
+
+	measure 'Total Employees' = DISTINCTCOUNT(HR_Analytics[EmpID])
+		formatString: #,##0
+		displayFolder: Workforce
+		lineageTag: 07fcdbd896a258c5c76b
+
+	measure 'Current Employees' = CALCULATE([Total Employees], KEEPFILTERS(HR_Analytics[Attrition] = "No"))
+		formatString: #,##0
+		displayFolder: Workforce
+		lineageTag: a248ba3b0ad46a904476
+
+	measure 'Attrition Employees' = CALCULATE([Total Employees], KEEPFILTERS(HR_Analytics[Attrition] = "Yes"))
+		formatString: #,##0
+		displayFolder: Attrition
+		lineageTag: 97ff096421f0f01ffc95
+
+	measure 'Attrition Rate %' = DIVIDE([Attrition Employees], [Total Employees])
+		formatString: 0.0%
+		displayFolder: Attrition
+		lineageTag: 50048ede91ab3eeea1c3
+
+	measure 'Average Age' = AVERAGE(HR_Analytics[Age])
+		formatString: 0.0
+		displayFolder: Employee Profile
+		lineageTag: d9f7f483c969d6ecb786
+
+	measure 'Average Monthly Income' = AVERAGE(HR_Analytics[MonthlyIncome])
+		formatString: #,##0
+		displayFolder: Employee Profile
+		lineageTag: f916112b441e8c1bd80c
+
+	measure 'Average Years at Company' = AVERAGE(HR_Analytics[YearsAtCompany])
+		formatString: 0.0
+		displayFolder: Employee Profile
+		lineageTag: d57ee3f6d8ff70cf9fb0
+
+	measure 'Average Job Satisfaction' = AVERAGE(HR_Analytics[JobSatisfaction])
+		formatString: 0.00
+		displayFolder: Employee Profile
+		lineageTag: a7e63c2a37918936e370
+
+	measure 'Average Environment Satisfaction' = AVERAGE(HR_Analytics[EnvironmentSatisfaction])
+		formatString: 0.00
+		displayFolder: Employee Profile
+		lineageTag: f04694a12057ef5ce2cc
+
+	measure 'Average Work-Life Balance' = AVERAGE(HR_Analytics[WorkLifeBalance])
+		formatString: 0.00
+		displayFolder: Employee Profile
+		lineageTag: 7162c83677cd6da42a85
+
+	measure 'Average Training Times Last Year' = AVERAGE(HR_Analytics[TrainingTimesLastYear])
+		formatString: 0.0
+		displayFolder: Employee Profile
+		lineageTag: f17eea01e3bec6ed0390
+
+	measure 'Average Distance From Home' = AVERAGE(HR_Analytics[DistanceFromHome])
+		formatString: 0.0
+		displayFolder: Employee Profile
+		lineageTag: 7f6caf56e2c714d208fb
+
+	measure 'Overtime Employees' = CALCULATE([Total Employees], KEEPFILTERS(HR_Analytics[OverTime] = "Yes"))
+		formatString: #,##0
+		displayFolder: Workforce
+		lineageTag: 2f20da8905d58485451a
+
+	measure 'Overtime Attrition Rate %' = CALCULATE([Attrition Rate %], KEEPFILTERS(HR_Analytics[OverTime] = "Yes"))
+		formatString: 0.0%
+		displayFolder: Attrition
+		lineageTag: 0c69c2eae6b2f453b534
+
+	measure 'Male Employees' = CALCULATE([Total Employees], KEEPFILTERS(HR_Analytics[Gender] = "Male"))
+		formatString: #,##0
+		displayFolder: Workforce
+		lineageTag: 2ba065b710a64a6d6d77
+
+	measure 'Female Employees' = CALCULATE([Total Employees], KEEPFILTERS(HR_Analytics[Gender] = "Female"))
+		formatString: #,##0
+		displayFolder: Workforce
+		lineageTag: bc16adf8caf0be877de7
+
+	measure 'Company Attrition Rate %' = CALCULATE([Attrition Rate %], REMOVEFILTERS(HR_Analytics))
+		formatString: 0.0%
+		displayFolder: Attrition
+		lineageTag: 90bcc63f47d65f2ccb05
+
+	measure 'Attrition Rate vs company average' = [Attrition Rate %] - [Company Attrition Rate %]
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: Attrition
+		lineageTag: 7523347254c93737ffb3
+
+	measure 'No Overtime Attrition Rate %' = CALCULATE([Attrition Rate %], REMOVEFILTERS(HR_Analytics[OverTime]), HR_Analytics[OverTime] = "No")
+		formatString: 0.0%
+		displayFolder: Attrition
+		lineageTag: 90158fcbd5b16623f7f7
+
+	measure 'Highest-Risk Department' = VAR Segments = FILTER(ADDCOLUMNS(ALLSELECTED(HR_Analytics[Department]), "__rate", [Attrition Rate %], "__n", [Total Employees]), [__n] > 0) VAR TopSegment = TOPN(1, Segments, [__rate], DESC, HR_Analytics[Department], ASC) RETURN IF([Total Employees] > 0, CONCATENATEX(TopSegment, HR_Analytics[Department], ", "), "No records")
+		displayFolder: Insights
+		lineageTag: c34cbe399bd336f126f7
+
+	measure 'Highest-Risk Job Role' = VAR Segments = FILTER(ADDCOLUMNS(ALLSELECTED(HR_Analytics[JobRole]), "__rate", [Attrition Rate %], "__n", [Total Employees]), [__n] > 0) VAR TopSegment = TOPN(1, Segments, [__rate], DESC, HR_Analytics[JobRole], ASC) RETURN IF([Total Employees] > 0, CONCATENATEX(TopSegment, HR_Analytics[JobRole], ", "), "No records")
+		displayFolder: Insights
+		lineageTag: 6db1c3cb8f7f6d3d8b99
+
+	measure 'Highest-Risk Age Group' = VAR Segments = FILTER(ADDCOLUMNS(ALLSELECTED(HR_Analytics[AgeGroup]), "__rate", [Attrition Rate %], "__n", [Total Employees]), [__n] > 0) VAR TopSegment = TOPN(1, Segments, [__rate], DESC, HR_Analytics[AgeGroup], ASC) RETURN IF([Total Employees] > 0, CONCATENATEX(TopSegment, HR_Analytics[AgeGroup], ", "), "No records")
+		displayFolder: Insights
+		lineageTag: 08e6d093931c5775bcc8
+
+	measure 'Selected Segment' = VAR D = IF(HASONEVALUE(HR_Analytics[Department]), SELECTEDVALUE(HR_Analytics[Department]), "All departments") VAR G = IF(HASONEVALUE(HR_Analytics[Gender]), " | " & SELECTEDVALUE(HR_Analytics[Gender]), "") VAR J = IF(HASONEVALUE(HR_Analytics[JobRole]), " | " & SELECTEDVALUE(HR_Analytics[JobRole]), "") RETURN IF([Total Employees] > 0, D & G & J & " | " & FORMAT([Total Employees], "#,##0") & " employees", "No records match these filters. Use Reset filters.")
+		displayFolder: Insights
+		lineageTag: f819444d74b3428ee157
+
+	measure 'Key Insights' = IF([Total Employees] > 0, FORMAT([Current Employees], "#,##0") & " current employees; " & FORMAT([Attrition Employees], "#,##0") & " departures in this dataset. Attrition share is " & FORMAT([Attrition Rate %], "0.0%") & ". Highest observed department rate: " & [Highest-Risk Department] & ".", "No records match these filters. Use Reset filters.")
+		displayFolder: Insights
+		lineageTag: ffd5577106698a6db7c3
+
+	measure 'Retention Pulse' = "Strongest: " & IF([Average Work-Life Balance] >= [Average Job Satisfaction], "work-life balance", "job satisfaction") & ". Review low individual ratings."
+		displayFolder: Insights
+		lineageTag: b8af56cc07173807854b
+
+	measure 'Recommended Actions' = "Review overtime workload; hold listening sessions in " & [Highest-Risk Department] & ". Check segment size before acting. Associations are not causation."
+		displayFolder: Insights
+		lineageTag: c3268668e0cdbd35d567
+
+	measure 'Attrition Heat Color' = SWITCH(TRUE(), ISBLANK([Attrition Rate %]), "#FFFFFF", [Attrition Rate %] >= 0.25, "#F4B4B4", [Attrition Rate %] >= 0.16, "#FBE0B5", "#C9EDE8")
+		displayFolder: Formatting
+		lineageTag: 8a35adce72d5ce062a0b
+
+	measure 'JobSatisfaction Color' = SWITCH(SELECTEDVALUE(HR_Analytics[JobSatisfaction]), 1, "#F4B4B4", 2, "#FBE0B5", 3, "#DDF1EE", 4, "#BCE5DD", "#FFFFFF")
+		displayFolder: Formatting
+		lineageTag: 5d959c1877cc9b38fd2c
+
+	measure 'EnvironmentSatisfaction Color' = SWITCH(SELECTEDVALUE(HR_Analytics[EnvironmentSatisfaction]), 1, "#F4B4B4", 2, "#FBE0B5", 3, "#DDF1EE", 4, "#BCE5DD", "#FFFFFF")
+		displayFolder: Formatting
+		lineageTag: fa564821042eac938cfb
+
+	measure 'WorkLifeBalance Color' = SWITCH(SELECTEDVALUE(HR_Analytics[WorkLifeBalance]), 1, "#F4B4B4", 2, "#FBE0B5", 3, "#DDF1EE", 4, "#BCE5DD", "#FFFFFF")
+		displayFolder: Formatting
+		lineageTag: 5c99d19829e747bcaa66
+
+	measure 'Context Department' = IF(HASONEVALUE(HR_Analytics[Department]), SELECTEDVALUE(HR_Analytics[Department]), "All")
+		displayFolder: Context
+		lineageTag: c82ebc999428053662a0
+
+	measure 'Context Job Role' = IF(HASONEVALUE(HR_Analytics[JobRole]), SELECTEDVALUE(HR_Analytics[JobRole]), "All")
+		displayFolder: Context
+		lineageTag: a299314bf9845a4527db
+
+	measure 'Context Age Group' = IF(HASONEVALUE(HR_Analytics[AgeGroup]), SELECTEDVALUE(HR_Analytics[AgeGroup]), "All")
+		displayFolder: Context
+		lineageTag: a8e017c79209c30c3189
+
+	measure 'Context Gender' = IF(HASONEVALUE(HR_Analytics[Gender]), SELECTEDVALUE(HR_Analytics[Gender]), "All")
+		displayFolder: Context
+		lineageTag: 9a4dd6b606d152fcbcf0
+
+	measure 'Context Salary Slab' = IF(HASONEVALUE(HR_Analytics[SalarySlab]), SELECTEDVALUE(HR_Analytics[SalarySlab]), "All")
+		displayFolder: Context
+		lineageTag: 4bd1534d3f4e83adb26f
+
+	measure 'Context Business Travel' = IF(HASONEVALUE(HR_Analytics[BusinessTravel]), SELECTEDVALUE(HR_Analytics[BusinessTravel]), "All")
+		displayFolder: Context
+		lineageTag: 7a7515eefd3b0e8b0a36
+
+	measure 'Context OverTime' = IF(HASONEVALUE(HR_Analytics[OverTime]), SELECTEDVALUE(HR_Analytics[OverTime]), "All")
+		displayFolder: Context
+		lineageTag: bc3d3db5791d01be1a6f
+
+	column EmpID
+		dataType: string
+		lineageTag: 866aa39d-f78d-4117-b533-6a48d21ce597
+		summarizeBy: none
+		sourceColumn: EmpID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Age
+		dataType: int64
+		formatString: 0
+		lineageTag: e905aa83-6004-468d-846b-3889ceeb85e6
+		summarizeBy: none
+		sourceColumn: Age
+
+		annotation SummarizationSetBy = Automatic
+
+	column AgeGroup
+		dataType: string
+		lineageTag: 74d62aaf-9a49-4787-8eea-f1a732311361
+		summarizeBy: none
+		sourceColumn: AgeGroup
+
+		annotation SummarizationSetBy = Automatic
+
+	column Attrition
+		dataType: string
+		lineageTag: d5756546-faed-4c39-95c9-a403db6ae90b
+		summarizeBy: none
+		sourceColumn: Attrition
+
+		annotation SummarizationSetBy = Automatic
+
+	column BusinessTravel
+		dataType: string
+		lineageTag: ccae5ddf-3e80-4d12-946c-4b73c99554f0
+		summarizeBy: none
+		sourceColumn: BusinessTravel
+
+		annotation SummarizationSetBy = Automatic
+
+	column DailyRate
+		dataType: int64
+		formatString: 0
+		lineageTag: 6a281d9d-6fff-4b14-82e0-9f7b1277b35a
+		summarizeBy: none
+		sourceColumn: DailyRate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Department
+		dataType: string
+		lineageTag: edcb6e8d-ec65-4779-bc47-005712d4585a
+		summarizeBy: none
+		sourceColumn: Department
+
+		annotation SummarizationSetBy = Automatic
+
+	column DistanceFromHome
+		dataType: int64
+		formatString: 0
+		lineageTag: d477d4b2-b561-4bde-b9b9-fc92c7341e50
+		summarizeBy: none
+		sourceColumn: DistanceFromHome
+
+		annotation SummarizationSetBy = Automatic
+
+	column Education
+		dataType: int64
+		formatString: 0
+		lineageTag: 8fde185f-8845-4d99-9671-38f28bb187fa
+		summarizeBy: none
+		sourceColumn: Education
+
+		annotation SummarizationSetBy = Automatic
+
+	column EducationField
+		dataType: string
+		lineageTag: 048d0d1f-9936-4a70-985f-9a4ab3eb2dc3
+		summarizeBy: none
+		sourceColumn: EducationField
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeCount
+		dataType: int64
+		formatString: 0
+		lineageTag: ce3266e5-4912-4210-9e16-523de11f16f9
+		summarizeBy: none
+		sourceColumn: EmployeeCount
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 9b9871fa-fa7a-4751-9eb3-32248260d61f
+		summarizeBy: none
+		sourceColumn: EmployeeNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnvironmentSatisfaction
+		dataType: int64
+		formatString: 0
+		lineageTag: 09edf63a-b1a6-4358-8811-b47e4cfeffaf
+		summarizeBy: none
+		sourceColumn: EnvironmentSatisfaction
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gender
+		dataType: string
+		lineageTag: 30814cbd-1237-4783-b9dc-9a01232bda3f
+		summarizeBy: none
+		sourceColumn: Gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column HourlyRate
+		dataType: int64
+		formatString: 0
+		lineageTag: ae461c3e-c373-48e0-ab17-9d18a11cff3d
+		summarizeBy: none
+		sourceColumn: HourlyRate
+
+		annotation SummarizationSetBy = Automatic
+
+	column JobInvolvement
+		dataType: int64
+		formatString: 0
+		lineageTag: ef7b804c-f39a-49ca-9624-6cd03478bf07
+		summarizeBy: none
+		sourceColumn: JobInvolvement
+
+		annotation SummarizationSetBy = Automatic
+
+	column JobLevel
+		dataType: int64
+		formatString: 0
+		lineageTag: ff36b55f-5054-4ea8-9057-97c7850e9faf
+		summarizeBy: none
+		sourceColumn: JobLevel
+
+		annotation SummarizationSetBy = Automatic
+
+	column JobRole
+		dataType: string
+		lineageTag: b6162dbd-57fb-48e0-9d3c-923f91cb7342
+		summarizeBy: none
+		sourceColumn: JobRole
+
+		annotation SummarizationSetBy = Automatic
+
+	column JobSatisfaction
+		dataType: int64
+		formatString: 0
+		lineageTag: 440fa169-6cc2-49aa-ad4a-38db10634865
+		summarizeBy: none
+		sourceColumn: JobSatisfaction
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaritalStatus
+		dataType: string
+		lineageTag: 808b0f7d-8840-45e5-b442-b140a59c3e27
+		summarizeBy: none
+		sourceColumn: MaritalStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthlyIncome
+		dataType: int64
+		formatString: 0
+		lineageTag: 8c5c97bf-4926-4a0c-b78d-f577d104e79d
+		summarizeBy: none
+		sourceColumn: MonthlyIncome
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalarySlab
+		dataType: string
+		lineageTag: 6c2eacaa-92af-4bcf-bc34-f75c9dc10c18
+		summarizeBy: none
+		sourceColumn: SalarySlab
+		sortByColumn: 'Salary Sort'
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthlyRate
+		dataType: int64
+		formatString: 0
+		lineageTag: 311d2110-92ee-4faa-90ed-cdcb06381ed8
+		summarizeBy: none
+		sourceColumn: MonthlyRate
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumCompaniesWorked
+		dataType: int64
+		formatString: 0
+		lineageTag: f785f917-e7a3-4a4e-a2ff-d7e28911f3f0
+		summarizeBy: none
+		sourceColumn: NumCompaniesWorked
+
+		annotation SummarizationSetBy = Automatic
+
+	column Over18
+		dataType: string
+		lineageTag: 3b4dd0d2-47c1-4c83-86a1-ce939d19a17a
+		summarizeBy: none
+		sourceColumn: Over18
+
+		annotation SummarizationSetBy = Automatic
+
+	column OverTime
+		dataType: string
+		lineageTag: 1b202f61-61c7-4880-a28f-5a94424330ed
+		summarizeBy: none
+		sourceColumn: OverTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column PercentSalaryHike
+		dataType: int64
+		formatString: 0
+		lineageTag: 1c7df378-c774-40d4-ba42-e7a9c391bb2e
+		summarizeBy: none
+		sourceColumn: PercentSalaryHike
+
+		annotation SummarizationSetBy = Automatic
+
+	column PerformanceRating
+		dataType: int64
+		formatString: 0
+		lineageTag: 02975bf2-de88-41fe-a95d-5b642d493480
+		summarizeBy: none
+		sourceColumn: PerformanceRating
+
+		annotation SummarizationSetBy = Automatic
+
+	column RelationshipSatisfaction
+		dataType: int64
+		formatString: 0
+		lineageTag: 383604fd-7278-45ad-933e-cfdb1275bf4d
+		summarizeBy: none
+		sourceColumn: RelationshipSatisfaction
+
+		annotation SummarizationSetBy = Automatic
+
+	column StandardHours
+		dataType: int64
+		formatString: 0
+		lineageTag: 15fd0321-56a7-4a53-87f5-e5c306126b32
+		summarizeBy: none
+		sourceColumn: StandardHours
+
+		annotation SummarizationSetBy = Automatic
+
+	column StockOptionLevel
+		dataType: int64
+		formatString: 0
+		lineageTag: a311b85c-ec66-44c6-b3f3-1c42644b4e96
+		summarizeBy: none
+		sourceColumn: StockOptionLevel
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalWorkingYears
+		dataType: int64
+		formatString: 0
+		lineageTag: a1b043fe-8229-4b1c-9fef-6f46d981ec46
+		summarizeBy: none
+		sourceColumn: TotalWorkingYears
+
+		annotation SummarizationSetBy = Automatic
+
+	column TrainingTimesLastYear
+		dataType: int64
+		formatString: 0
+		lineageTag: 9d21046e-5819-4b1e-a12a-6276e559e957
+		summarizeBy: none
+		sourceColumn: TrainingTimesLastYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column WorkLifeBalance
+		dataType: int64
+		formatString: 0
+		lineageTag: 9d5f5e0f-b82e-4dfa-990b-5af7332a74f1
+		summarizeBy: none
+		sourceColumn: WorkLifeBalance
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearsAtCompany
+		dataType: int64
+		formatString: 0
+		lineageTag: 91829d37-9b67-422e-a423-218eb1e8ca8c
+		summarizeBy: none
+		sourceColumn: YearsAtCompany
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearsInCurrentRole
+		dataType: int64
+		formatString: 0
+		lineageTag: 51dde4a8-e7e5-431f-9546-19d79b0f2cab
+		summarizeBy: none
+		sourceColumn: YearsInCurrentRole
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearsSinceLastPromotion
+		dataType: int64
+		formatString: 0
+		lineageTag: 138bca78-851c-4d9a-bf98-65ead71099e0
+		summarizeBy: none
+		sourceColumn: YearsSinceLastPromotion
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearsWithCurrManager
+		dataType: int64
+		formatString: 0
+		lineageTag: 147bf8c1-052e-482b-a930-6125ec63f459
+		summarizeBy: none
+		sourceColumn: YearsWithCurrManager
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tenure Band' = SWITCH(TRUE(), ISBLANK(HR_Analytics[YearsAtCompany]), "Unknown", HR_Analytics[YearsAtCompany] < 1, "0 years", HR_Analytics[YearsAtCompany] <= 3, "1–3 years", HR_Analytics[YearsAtCompany] <= 5, "4–5 years", HR_Analytics[YearsAtCompany] <= 10, "6–10 years", "11+ years")
+		dataType: string
+		lineageTag: b94d457027607279d2f9
+		summarizeBy: none
+		sortByColumn: 'Tenure Sort'
+
+	column 'Distance Band' = SWITCH(TRUE(), ISBLANK(HR_Analytics[DistanceFromHome]), "Unknown", HR_Analytics[DistanceFromHome] <= 5, "01–05", HR_Analytics[DistanceFromHome] <= 10, "06–10", HR_Analytics[DistanceFromHome] <= 20, "11–20", "21–29")
+		dataType: string
+		lineageTag: 27b9623e1e8bdddc08d3
+		summarizeBy: none
+
+	column 'Work-Life Balance Label' = SWITCH(HR_Analytics[WorkLifeBalance], 1, "1 · Low", 2, "2 · Fair", 3, "3 · Good", 4, "4 · Excellent", "Unknown")
+		dataType: string
+		lineageTag: 3cf6bd7e60658e058e30
+		summarizeBy: none
+
+	column 'Tenure Sort' = SWITCH(TRUE(), HR_Analytics[YearsAtCompany] < 1, 0, HR_Analytics[YearsAtCompany] <= 3, 1, HR_Analytics[YearsAtCompany] <= 5, 2, HR_Analytics[YearsAtCompany] <= 10, 3, 4)
+		dataType: int64
+		isHidden
+		lineageTag: 46df4613-51f4-4952-9150-298c164c34d1
+		summarizeBy: none
+
+	column 'Salary Sort' = SWITCH(TRUE(), HR_Analytics[MonthlyIncome] <= 5000, 1, HR_Analytics[MonthlyIncome] <= 10000, 2, HR_Analytics[MonthlyIncome] <= 15000, 3, 4)
+		dataType: int64
+		isHidden
+		lineageTag: c1c77192-b39e-460a-85c0-c0262fcc228d
+		summarizeBy: none
+
+	partition HR_Analytics = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\Eslam\Documents\Codex\2026-10-04\microsoft-power-bi-plugin-power-bi-2\outputs\HR360_Final\data\HR_Analytics_source.csv"),[Delimiter=",", Columns=38, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"EmpID", type text}, {"Age", Int64.Type}, {"AgeGroup", type text}, {"Attrition", type text}, {"BusinessTravel", type text}, {"DailyRate", Int64.Type}, {"Department", type text}, {"DistanceFromHome", Int64.Type}, {"Education", Int64.Type}, {"EducationField", type text}, {"EmployeeCount", Int64.Type}, {"EmployeeNumber", Int64.Type}, {"EnvironmentSatisfaction", Int64.Type}, {"Gender", type text}, {"HourlyRate", Int64.Type}, {"JobInvolvement", Int64.Type}, {"JobLevel", Int64.Type}, {"JobRole", type text}, {"JobSatisfaction", Int64.Type}, {"MaritalStatus", type text}, {"MonthlyIncome", Int64.Type}, {"SalarySlab", type text}, {"MonthlyRate", Int64.Type}, {"NumCompaniesWorked", Int64.Type}, {"Over18", type text}, {"OverTime", type text}, {"PercentSalaryHike", Int64.Type}, {"PerformanceRating", Int64.Type}, {"RelationshipSatisfaction", Int64.Type}, {"StandardHours", Int64.Type}, {"StockOptionLevel", Int64.Type}, {"TotalWorkingYears", Int64.Type}, {"TrainingTimesLastYear", Int64.Type}, {"WorkLifeBalance", Int64.Type}, {"YearsAtCompany", Int64.Type}, {"YearsInCurrentRole", Int64.Type}, {"YearsSinceLastPromotion", Int64.Type}, {"YearsWithCurrManager", Int64.Type}}),
+				    CleanTravel = Table.ReplaceValue(#"Changed Type", "TravelRarely", "Travel_Rarely", Replacer.ReplaceValue, {"BusinessTravel"}),
+				    Completeness = Table.AddColumn(CleanTravel, "_Complete", each List.NonNullCount(Record.FieldValues(_)), Int64.Type),
+				    Sorted = Table.Buffer(Table.Sort(Completeness, {{"_Complete", Order.Descending}})),
+				    UniqueEmployees = Table.Distinct(Sorted, {"EmpID"}),
+				    Prepared0 = Table.RemoveColumns(UniqueEmployees, {"_Complete"}),
+				    CheckedManager = Table.AddColumn(Prepared0, "ManagerTenureChecked", each if List.Contains({"RM1465", "RM1466", "RM1467"}, [EmpID]) then null else [YearsWithCurrManager], Int64.Type),
+				    Prepared = Table.RenameColumns(Table.RemoveColumns(CheckedManager, {"YearsWithCurrManager"}), {{"ManagerTenureChecked", "YearsWithCurrManager"}})
+				in
+				    Prepared
+
+	annotation PBI_ResultType = Table
+

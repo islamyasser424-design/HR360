@@ -1,0 +1,380 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "a61e2f328aba01371fe4",
+  "position": {
+    "x": 254,
+    "y": 670,
+    "z": 25000,
+    "height": 262,
+    "width": 525,
+    "tabOrder": 25000
+  },
+  "visual": {
+    "visualType": "deneb7E15AEF80B9E4D4F8E12924291ECE89A",
+    "query": {
+      "queryState": {
+        "dataset": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "HR_Analytics"
+                    }
+                  },
+                  "Property": "AgeGroup"
+                }
+              },
+              "queryRef": "HR_Analytics.AgeGroup",
+              "nativeQueryRef": "AgeGroup"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "HR_Analytics"
+                    }
+                  },
+                  "Property": "Total Employees"
+                }
+              },
+              "queryRef": "HR_Analytics.Total Employees",
+              "nativeQueryRef": "Total Employees"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "vega": [
+        {
+          "properties": {
+            "jsonSpec": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\"$schema\":\"https://vega.github.io/schema/vega/v5.json\",\"background\":\"transparent\",\"autosize\":\"none\",\"padding\":{\"left\":42,\"right\":14,\"top\":18,\"bottom\":31},\"signals\":[{\"name\":\"width\",\"update\":\"max(40,pbiContainer.width-56)\"},{\"name\":\"height\",\"update\":\"max(40,pbiContainer.height-49)\"}],\"data\":[{\"name\":\"dataset\"},{\"name\":\"ordered\",\"source\":\"dataset\",\"transform\":[{\"type\":\"formula\",\"expr\":\"indexof([\\\"18-25\\\", \\\"26-35\\\", \\\"36-45\\\", \\\"46-55\\\", \\\"55+\\\"],datum[\\\"AgeGroup\\\"])\",\"as\":\"_order\"}]}],\"marks\":[{\"name\":\"bars\",\"type\":\"rect\",\"from\":{\"data\":\"ordered\"},\"encode\":{\"update\":{\"fill\":{\"value\":\"#4DD0C2\"},\"fillOpacity\":{\"signal\":\"datum.__selected__ == ''off'' ? 0.28 : 1\"},\"cursor\":{\"value\":\"pointer\"},\"tooltip\":{\"signal\":\"{\\\"AgeGroup\\\":datum[\\\"AgeGroup\\\"],\\\"Total Employees\\\":format(datum[\\\"Total Employees\\\"],\\\",.0f\\\")}\"},\"x\":{\"signal\":\"scale(\\\"category\\\",datum[\\\"AgeGroup\\\"])\"},\"width\":{\"signal\":\"bandwidth(''category'')\"},\"y\":{\"scale\":\"value\",\"field\":\"Total Employees\"},\"y2\":{\"scale\":\"value\",\"value\":0},\"cornerRadiusTopLeft\":{\"value\":10},\"cornerRadiusTopRight\":{\"value\":10}},\"hover\":{\"fillOpacity\":{\"value\":0.8}}}}],\"config\":{\"font\":\"Segoe UI\",\"axis\":{\"domain\":false,\"ticks\":false,\"labelColor\":\"#B8C8DA\",\"labelFontSize\":11,\"labelPadding\":7,\"title\":null,\"gridColor\":\"#2B4058\"},\"legend\":{\"labelColor\":\"#B8C8DA\",\"labelFontSize\":10,\"title\":null,\"symbolType\":\"circle\",\"symbolSize\":65}},\"scales\":[{\"name\":\"category\",\"type\":\"band\",\"domain\":{\"data\":\"ordered\",\"field\":\"AgeGroup\",\"sort\":{\"op\":\"max\",\"field\":\"_order\",\"order\":\"ascending\"}},\"range\":[0,{\"signal\":\"width\"}],\"paddingInner\":0.38,\"paddingOuter\":0.16},{\"name\":\"value\",\"type\":\"linear\",\"domain\":{\"data\":\"ordered\",\"field\":\"Total Employees\"},\"range\":[{\"signal\":\"height\"},0],\"zero\":true,\"nice\":true}],\"axes\":[{\"scale\":\"category\",\"orient\":\"bottom\",\"grid\":false,\"labelLimit\":100},{\"scale\":\"value\",\"orient\":\"left\",\"grid\":true,\"gridScale\":\"category\",\"tickCount\":3,\"format\":\"~s\",\"zindex\":0}]}'"
+                }
+              }
+            },
+            "jsonConfig": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{}'"
+                }
+              }
+            },
+            "provider": {
+              "expr": {
+                "Literal": {
+                  "Value": "'vega'"
+                }
+              }
+            },
+            "renderMode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'svg'"
+                }
+              }
+            },
+            "enableTooltips": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableContextMenu": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableContextMenuSelector": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableSelection": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "selectionMaxDataPoints": {
+              "expr": {
+                "Literal": {
+                  "Value": "250D"
+                }
+              }
+            },
+            "selectionMode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'simple'"
+                }
+              }
+            },
+            "version": {
+              "expr": {
+                "Literal": {
+                  "Value": "'6.4.0'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "stateManagement": [
+        {
+          "properties": {
+            "viewportHeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "187D"
+                }
+              }
+            },
+            "viewportWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "491D"
+                }
+              }
+            },
+            "supportFieldConfiguration": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\"AgeGroup\":{\"highlight\":false,\"highlightStatus\":false,\"highlightComparator\":false,\"format\":false,\"formatted\":false,\"names\":false},\"Total Employees\":{\"highlight\":false,\"highlightStatus\":false,\"highlightComparator\":false,\"format\":true,\"formatted\":true,\"names\":false}}'"
+                }
+              }
+            },
+            "denebMetaVersion": {
+              "expr": {
+                "Literal": {
+                  "Value": "'2'"
+                }
+              }
+            },
+            "consolidateFieldParameters": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "developer": [
+        {
+          "properties": {
+            "version": {
+              "expr": {
+                "Literal": {
+                  "Value": "'2.0.0.0'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Age distribution'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E6EEF9'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#18283C'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#2C4058'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "22D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Age distribution'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualTooltip": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "type": {
+              "expr": {
+                "Literal": {
+                  "Value": "'ReportPage'"
+                }
+              }
+            },
+            "section": {
+              "expr": {
+                "Literal": {
+                  "Value": "'tt_EmployeeProfile'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

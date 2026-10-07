@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "HR360_Interactive"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "3102f820-5979-4f1c-83c6-4297a5f95ed9"
+  }
+}

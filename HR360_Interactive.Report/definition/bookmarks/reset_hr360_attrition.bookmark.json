@@ -1,0 +1,711 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "Reset filters · Attrition Analysis",
+  "name": "reset_hr360_attrition",
+  "options": {
+    "suppressActiveSection": true,
+    "suppressDisplay": true
+  },
+  "explorationState": {
+    "version": "1.0",
+    "activeSection": "hr360_attrition",
+    "sections": {
+      "fcf08515d90249690d2f": {
+        "visualContainers": {
+          "9dad933e6695e3fdb2ac": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "070a816618ecc0c96c4d": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "e837d5d502917ab1eba3": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "2e665bd3406ff9b19ba5": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "32a12aea1f3aad7e6a2f": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "5b25f18e5cab4d36323d": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "3b62eeb71b4ed24f3b70": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "hr360_employee_search": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "hr360_current": {
+        "visualContainers": {
+          "f1e7d95b9d788a3e1408": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "aacf4a6fa9ab5f93c308": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "cd49baa0f18e96649919": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "1969f56db2af85691e63": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "ae7df773dea16e144891": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "c5479d167b6aea2e0766": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "e2acc57b4e0e0518396d": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "hr360_employee_search": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "hr360_attrition": {
+        "visualContainers": {
+          "95c1a24b926dc5fed3e6": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "dcacc164c13e231bd9a2": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "28c8ff6a07d59cf70d3a": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "6246dc1f16eeb618abd7": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "afe6ea0e4fec860f788d": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "c5627516ee8f9ab5721b": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "7da4162a07a5260516f2": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "hr360_employee_search": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "fcf08515d90249690d2f_dark": {
+        "visualContainers": {
+          "9dad933e6695e3fdb2ac": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "070a816618ecc0c96c4d": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "e837d5d502917ab1eba3": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "2e665bd3406ff9b19ba5": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "32a12aea1f3aad7e6a2f": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "5b25f18e5cab4d36323d": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "3b62eeb71b4ed24f3b70": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "hr360_employee_search": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "hr360_current_dark": {
+        "visualContainers": {
+          "f1e7d95b9d788a3e1408": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "aacf4a6fa9ab5f93c308": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "cd49baa0f18e96649919": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "1969f56db2af85691e63": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "ae7df773dea16e144891": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "c5479d167b6aea2e0766": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "e2acc57b4e0e0518396d": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "hr360_employee_search": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "hr360_attrition_dark": {
+        "visualContainers": {
+          "95c1a24b926dc5fed3e6": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "dcacc164c13e231bd9a2": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "28c8ff6a07d59cf70d3a": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "6246dc1f16eeb618abd7": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "afe6ea0e4fec860f788d": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "c5627516ee8f9ab5721b": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "7da4162a07a5260516f2": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          },
+          "hr360_employee_search": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "remove": [
+                  {
+                    "object": "general",
+                    "property": "filter",
+                    "selector": {}
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

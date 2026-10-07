@@ -1,0 +1,253 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "tt_EmployeeProfile",
+  "displayName": "tt_EmployeeProfile",
+  "displayOption": "FitToPage",
+  "height": 580,
+  "width": 640,
+  "pageBinding": {
+    "name": "hr360_employee_profile",
+    "type": "Tooltip",
+    "parameters": []
+  },
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#F3F5F6'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visibility": "HiddenInViewMode",
+  "type": "Tooltip",
+  "visualInteractions": [
+    {
+      "source": "49d458d29186298d3a90",
+      "target": "eeabd620470ac2954a91",
+      "type": "DataFilter"
+    },
+    {
+      "source": "49d458d29186298d3a90",
+      "target": "adc061daa5b5f4bc98e7",
+      "type": "DataFilter"
+    },
+    {
+      "source": "49d458d29186298d3a90",
+      "target": "0098a8d4e364ac046f03",
+      "type": "DataFilter"
+    },
+    {
+      "source": "49d458d29186298d3a90",
+      "target": "30e8adc4b73430a59f03",
+      "type": "DataFilter"
+    },
+    {
+      "source": "49d458d29186298d3a90",
+      "target": "1f6731d22c28cc27fdd0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "49d458d29186298d3a90",
+      "target": "989b2aafd9bf9af8dccb",
+      "type": "DataFilter"
+    },
+    {
+      "source": "eeabd620470ac2954a91",
+      "target": "49d458d29186298d3a90",
+      "type": "DataFilter"
+    },
+    {
+      "source": "eeabd620470ac2954a91",
+      "target": "adc061daa5b5f4bc98e7",
+      "type": "DataFilter"
+    },
+    {
+      "source": "eeabd620470ac2954a91",
+      "target": "0098a8d4e364ac046f03",
+      "type": "DataFilter"
+    },
+    {
+      "source": "eeabd620470ac2954a91",
+      "target": "30e8adc4b73430a59f03",
+      "type": "DataFilter"
+    },
+    {
+      "source": "eeabd620470ac2954a91",
+      "target": "1f6731d22c28cc27fdd0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "eeabd620470ac2954a91",
+      "target": "989b2aafd9bf9af8dccb",
+      "type": "DataFilter"
+    },
+    {
+      "source": "adc061daa5b5f4bc98e7",
+      "target": "49d458d29186298d3a90",
+      "type": "DataFilter"
+    },
+    {
+      "source": "adc061daa5b5f4bc98e7",
+      "target": "eeabd620470ac2954a91",
+      "type": "DataFilter"
+    },
+    {
+      "source": "adc061daa5b5f4bc98e7",
+      "target": "0098a8d4e364ac046f03",
+      "type": "DataFilter"
+    },
+    {
+      "source": "adc061daa5b5f4bc98e7",
+      "target": "30e8adc4b73430a59f03",
+      "type": "DataFilter"
+    },
+    {
+      "source": "adc061daa5b5f4bc98e7",
+      "target": "1f6731d22c28cc27fdd0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "adc061daa5b5f4bc98e7",
+      "target": "989b2aafd9bf9af8dccb",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0098a8d4e364ac046f03",
+      "target": "49d458d29186298d3a90",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0098a8d4e364ac046f03",
+      "target": "eeabd620470ac2954a91",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0098a8d4e364ac046f03",
+      "target": "adc061daa5b5f4bc98e7",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0098a8d4e364ac046f03",
+      "target": "30e8adc4b73430a59f03",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0098a8d4e364ac046f03",
+      "target": "1f6731d22c28cc27fdd0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0098a8d4e364ac046f03",
+      "target": "989b2aafd9bf9af8dccb",
+      "type": "DataFilter"
+    },
+    {
+      "source": "30e8adc4b73430a59f03",
+      "target": "49d458d29186298d3a90",
+      "type": "DataFilter"
+    },
+    {
+      "source": "30e8adc4b73430a59f03",
+      "target": "eeabd620470ac2954a91",
+      "type": "DataFilter"
+    },
+    {
+      "source": "30e8adc4b73430a59f03",
+      "target": "adc061daa5b5f4bc98e7",
+      "type": "DataFilter"
+    },
+    {
+      "source": "30e8adc4b73430a59f03",
+      "target": "0098a8d4e364ac046f03",
+      "type": "DataFilter"
+    },
+    {
+      "source": "30e8adc4b73430a59f03",
+      "target": "1f6731d22c28cc27fdd0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "30e8adc4b73430a59f03",
+      "target": "989b2aafd9bf9af8dccb",
+      "type": "DataFilter"
+    },
+    {
+      "source": "1f6731d22c28cc27fdd0",
+      "target": "49d458d29186298d3a90",
+      "type": "DataFilter"
+    },
+    {
+      "source": "1f6731d22c28cc27fdd0",
+      "target": "eeabd620470ac2954a91",
+      "type": "DataFilter"
+    },
+    {
+      "source": "1f6731d22c28cc27fdd0",
+      "target": "adc061daa5b5f4bc98e7",
+      "type": "DataFilter"
+    },
+    {
+      "source": "1f6731d22c28cc27fdd0",
+      "target": "0098a8d4e364ac046f03",
+      "type": "DataFilter"
+    },
+    {
+      "source": "1f6731d22c28cc27fdd0",
+      "target": "30e8adc4b73430a59f03",
+      "type": "DataFilter"
+    },
+    {
+      "source": "1f6731d22c28cc27fdd0",
+      "target": "989b2aafd9bf9af8dccb",
+      "type": "DataFilter"
+    },
+    {
+      "source": "989b2aafd9bf9af8dccb",
+      "target": "49d458d29186298d3a90",
+      "type": "DataFilter"
+    },
+    {
+      "source": "989b2aafd9bf9af8dccb",
+      "target": "eeabd620470ac2954a91",
+      "type": "DataFilter"
+    },
+    {
+      "source": "989b2aafd9bf9af8dccb",
+      "target": "adc061daa5b5f4bc98e7",
+      "type": "DataFilter"
+    },
+    {
+      "source": "989b2aafd9bf9af8dccb",
+      "target": "0098a8d4e364ac046f03",
+      "type": "DataFilter"
+    },
+    {
+      "source": "989b2aafd9bf9af8dccb",
+      "target": "30e8adc4b73430a59f03",
+      "type": "DataFilter"
+    },
+    {
+      "source": "989b2aafd9bf9af8dccb",
+      "target": "1f6731d22c28cc27fdd0",
+      "type": "DataFilter"
+    }
+  ]
+}

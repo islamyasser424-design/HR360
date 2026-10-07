@@ -1,0 +1,14 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmarksMetadata/1.0.0/schema.json",
+  "items": [
+    {
+      "name": "reset_fcf08515d90249690d2f"
+    },
+    {
+      "name": "reset_hr360_current"
+    },
+    {
+      "name": "reset_hr360_attrition"
+    }
+  ]
+}

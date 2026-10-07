@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "HR360_Interactive"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "e29e3f5c-44e2-48b0-a2a5-70c788787370"
+  }
+}

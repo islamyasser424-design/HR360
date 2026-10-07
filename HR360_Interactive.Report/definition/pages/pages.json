@@ -1,0 +1,15 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.1.0/schema.json",
+  "pageOrder": [
+    "hr360_home",
+    "fcf08515d90249690d2f",
+    "hr360_current",
+    "hr360_attrition",
+    "tt_EmployeeProfile",
+    "fcf08515d90249690d2f_dark",
+    "hr360_current_dark",
+    "hr360_attrition_dark",
+    "hr360_home_dark"
+  ],
+  "activePageName": "hr360_home"
+}

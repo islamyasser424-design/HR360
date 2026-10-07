@@ -1,147 +1,214 @@
-# 🏢 HR360 — People Analytics & Executive Workforce Intelligence Dashboard
+# 🏢 HR360 Interactive — People Analytics & Executive Workforce Intelligence
 
 [![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)](https://powerbi.microsoft.com/)
 [![DAX](https://img.shields.io/badge/DAX-Calculations-0078D4?style=for-the-badge&logo=microsoft&logoColor=white)](https://learn.microsoft.com/en-us/dax/)
-[![Power BI Project](https://img.shields.io/badge/PBIP-Developer_Mode-green?style=for-the-badge)]()
+[![PBIP](https://img.shields.io/badge/PBIP-Developer_Mode-green?style=for-the-badge)](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-overview)
+[![Theme](https://img.shields.io/badge/UI%2FUX-Dual_Theme_(Light_%26_Dark)-6366f1?style=for-the-badge)]()
 [![Domain](https://img.shields.io/badge/Domain-People_Analytics-9333ea?style=for-the-badge)]()
 [![Status](https://img.shields.io/badge/Status-Completed-brightgreen?style=for-the-badge)]()
 
-An executive-level, interactive **People Analytics Dashboard (HR360)** built in **Microsoft Power BI (PBIP Developer Mode)**. Designed to provide HR leaders and C-suite executives with end-to-end visibility into workforce demographics, retention drivers, compensation equity, and root-cause attrition diagnostics across **1,470+ employees**.
+An enterprise-grade, fully interactive **People Analytics Dashboard (HR360 Interactive)** engineered in **Microsoft Power BI (PBIP Developer Mode)**. Designed for HR executives, People Operations leaders, and C-suite decision-makers, providing complete 360° visibility into workforce demographics, retention drivers, compensation equity, and root-cause turnover diagnostics across **1,470+ employee records**.
+
+Featuring **complete dual-theme support (Light & Dark modes)**, an **Insight Hub landing page**, **interactive AI Decomposition Trees**, **conversational Q&A ("Ask data")**, and granular **drill-through context tooltips**.
 
 ---
 
 ## 📌 Table of Contents
-- [📖 Executive Summary](#-executive-summary)
+- [✨ Key Architecture & Features](#-key-architecture--features)
 - [🖥️ Dashboard Preview & Page Breakdown](#️-dashboard-preview--page-breakdown)
-  - [1. HR Overview](#1--hr-overview-executive-summary)
-  - [2. Current Employees](#2--current-employees-workforce-profile)
-  - [3. Attrition Analysis](#3--attrition-analysis-root-cause-diagnostics)
-  - [4. Employee Profile Tooltip](#4--employee-profile-context-card)
-- [💡 Key Strategic Insights](#-key-strategic-insights)
-- [📐 Data Model & DAX Measures](#-data-model--dax-measures)
+  - [1. Insight Hub (HOME Landing Page)](#1--insight-hub-home-landing-page)
+  - [2. HR Overview](#2--hr-overview-executive-summary)
+  - [3. Current Employees](#3--current-employees-workforce-profile)
+  - [4. Attrition Analysis](#4--attrition-analysis-root-cause-diagnostics)
+  - [5. Interactive Tooltips & Q&A ("Ask data")](#5--interactive-tooltips--qa-ask-data)
+- [💡 Key Strategic Insights & Recommendations](#-key-strategic-insights--recommendations)
+  - [Detailed Department & Role Breakdown](#detailed-department--role-breakdown)
+  - [Overtime & Tenure Correlation](#overtime--tenure-correlation)
+- [📐 Data Model & Core DAX Measures](#-data-model--core-dax-measures)
 - [📂 Repository Structure](#-repository-structure)
 - [🚀 How to Open and Run](#-how-to-open-and-run)
 - [👤 Author & Connect](#-author--connect)
 
 ---
 
-## 📖 Executive Summary
+## ✨ Key Architecture & Features
 
-Retaining top talent and predicting turnover risks are among the highest-priority operational challenges in human capital management. 
-
-**HR360** transforms raw employee demographic and operational records into clear, actionable intelligence:
-* **Headcount & Demographics:** Real-time visibility into active employee distribution, gender split, age bands, and departmental staffing.
-* **Attrition Diagnostics:** Identifying high-risk departments, vulnerable job roles, and burnout triggers (such as excessive overtime).
-* **AI-Powered Exploration:** Leveraging Power BI's **Decomposition Tree** to interactively split and drill into attrition drivers on the fly.
-* **Modern PBIP Architecture:** Stored using the Power BI Project (`.pbip`) format with TMDL metadata, enabling Git version control and team collaboration.
+* 🌓 **Full Dual-Theme Design (Light & Dark Modes):** Seamless 1-click toggle between executive Light Mode and high-contrast Dark Mode across all report pages.
+* 🏠 **Insight Hub (HOME):** Executive portal featuring direct navigation cards to core modules alongside high-level workforce telemetry.
+* 🔍 **AI-Powered Root-Cause Diagnostics:** Integrated **Decomposition Tree** empowering leaders to dynamically decompose turnover rates across multiple organizational dimensions (Department ➔ Salary Slab ➔ Age Group ➔ Distance Band).
+* 💬 **Conversational Natural Language Q&A:** Native **"Ask data - Q&A"** modal allowing ad-hoc queries (e.g., *"top age groups by average distance from home"*, *"average years at company by job role"*).
+* 📇 **Contextual Tooltip Cards (`tt_EmployeeProfile`):** Hover-triggered micro-cards displaying cohort-specific metrics and standardized analytical definitions.
+* ⚡ **PBIP & TMDL Git Integration:** Stored in Power BI Project format with TMDL metadata, facilitating clean version control and CI/CD pipelines.
 
 ---
 
 ## 🖥️ Dashboard Preview & Page Breakdown
 
-### 1. 📊 HR Overview (Executive Summary)
-The high-level command center providing instant snapshot metrics for executive decision-makers.
+### 1. 🏠 Insight Hub (HOME Landing Page)
+The central launchpad greeting executive users with high-level snapshot metrics and instant 1-click navigation into specialized analytical views.
 
-![HR Overview](assets/01_HR_Overview.png)
+| Light Mode | Dark Mode |
+| :---: | :---: |
+| ![HOME Light](assets/00_Insight_Hub_Home_Light.png) | ![HOME Dark](assets/08_Insight_Hub_Home_Dark.png) |
 
-* **Key KPIs:** Total Headcount (`1,470`), Active Workforce (`1,233`), Exits (`237`), Baseline Attrition Rate (`16.1%`), Average Monthly Salary (`$6,503`), Average Job Satisfaction (`2.73 / 4`).
+* **Hero Telemetry:** Total dataset records (`1,470`), Active workforce (`1,232`), Departures recorded (`237`), Baseline attrition rate (`16.1%`).
+* **Navigation Cards:** 
+  * `01 Workforce Snapshot` ➔ **HR Overview**
+  * `02 Employee Experience` ➔ **Current Employees**
+  * `03 Retention Insights` ➔ **Attrition Analysis**
+* **Instant Theme Toggle:** Switch effortlessly between Light and Dark palettes.
+
+---
+
+### 2. 📊 HR Overview (Executive Summary)
+Comprehensive workforce distribution command center delivering foundational human capital intelligence.
+
+| Light Mode | Dark Mode |
+| :---: | :---: |
+| ![HR Overview Light](assets/01_HR_Overview_Light.png) | ![HR Overview Dark](assets/05_HR_Overview_Dark.png) |
+
+* **Executive KPI Ribbon:** Total Employees (`1,469`), Current Employees (`1,232`), Departures (`237`), Attrition Rate (`16.1%`), Avg. Monthly Income (`$6,504`), Avg. Job Satisfaction (`2.73 / 4`).
 * **Visual Highlights:**
-  * **Headcount by Department:** R&D represents the largest operational share, followed by Sales and HR.
-  * **Employees by Job Role:** Breakdown across sales executives, research scientists, lab technicians, etc.
-  * **Workforce Composition:** Gender distribution (`60% Male`, `40% Female`).
-  * **Age & Income Distribution:** Generational clusters (peak in `26–35` age bracket) and compensation progression by job level.
+  * **Headcount by Department:** R&D forms the core operational majority (~65%), followed by Sales (~30%) and Human Resources (~5%).
+  * **Employees by Job Role:** Granular headcount rankings across Sales Executives, Research Scientists, Laboratory Technicians, and Managers.
+  * **Workforce Composition:** Gender breakdown (`59.97% Male`, `40.03% Female`).
+  * **Age & Income Spread:** Peak age clustering in `26–35` cohort; progressive salary scaling across job levels 1 through 5.
+  * **Travel Frequency:** Non-Travel (10.21%), Travel Frequently (18.79%), Travel Rarely (71.00%).
 
 ---
 
-### 2. 👥 Current Employees (Workforce Profile)
-A deep-dive page focused exclusively on the retained workforce (`1,233` active employees) to analyze engagement, compensation, and stability.
+### 3. 👥 Current Employees (Workforce Profile)
+Focused specifically on the retained, active workforce (`1,232` employees) to evaluate experience, compensation parity, and engagement.
 
-![Current Employees](assets/02_Current_Employees.png)
+| Light Mode | Dark Mode |
+| :---: | :---: |
+| ![Current Employees Light](assets/02_Current_Employees_Light.png) | ![Current Employees Dark](assets/06_Current_Employees_Dark.png) |
 
-* **Key KPIs:** Active Employees (`1,233`), Average Age (`37.6 yrs`), Average Monthly Income (`$6,833`), Average Company Tenure (`7.4 yrs`), Training Frequency (`2.8 sessions/year`), Work-Life Balance Rating (`2.78 / 4`).
+* **Active Cohort KPIs:** Current Employees (`1,232`), Average Age (`36.9 yrs`), Avg. Monthly Income (`$6,504`), Average Tenure (`7.0 yrs`), Training Sessions (`2.8 / yr`), Work-Life Balance Rating (`2.76 / 4`).
 * **Visual Highlights:**
-  * **Salary Slabs:** Distribution across income tiers (`Upto 5k`, `5k–10k`, `10k–15k`, `15k+`).
-  * **Gender Pay Equity:** Monthly income mapped by seniority level and gender.
-  * **Tenure Milestones:** Retention longevity peaking at 5–10 years of service.
-  * **Satisfaction vs. Travel:** Correlating departmental satisfaction with business travel frequency.
+  * **Salary Slabs:** Income distribution spanning `Upto 5k`, `5k–10k`, `10k–15k`, and `15k+`.
+  * **Gender Pay Parity:** Monthly income mapped side-by-side across job levels (Levels 1–5) and gender to monitor equity.
+  * **Tenure Distribution:** Active workforce longevity breakdown from new joiners (`0 years`) through tenured veterans (`11+ years`).
+  * **Departmental Satisfaction Mix:** 100% stacked breakdown of job satisfaction tiers across HR, R&D, and Sales.
+  * **Granular Records Matrix:** Individual employee drill-down displaying satisfaction, environment, and work-life balance scores with conditional color coding.
 
 ---
 
-### 3. 🔍 Attrition Analysis (Root-Cause Diagnostics)
-A targeted diagnostic page uncovering the root causes, demographic segments, and operational friction points behind the `237` employee departures.
+### 4. 🔍 Attrition Analysis (Root-Cause Diagnostics)
+The diagnostic engine dissecting the drivers, risk factors, and organizational segments behind employee departures.
 
-![Attrition Analysis](assets/03_Attrition_Analysis.png)
+| Light Mode | Dark Mode |
+| :---: | :---: |
+| ![Attrition Analysis Light](assets/03_Attrition_Analysis_Light.png) | ![Attrition Analysis Dark](assets/07_Attrition_Analysis_Dark.png) |
 
-* **Key KPIs:** Total Exits (`237`), Attrition Rate (`16.1%`), **Overtime Attrition Rate (`30.5%`)**, Highest-Risk Department (`Sales`), Highest-Risk Role (`Sales Representative`), Highest-Risk Age Group (`18–25`).
+* **Risk Metric Cards:** Exits (`237`), Baseline Attrition Rate (`16.1%`), **Overtime Attrition Rate (`30.5%`)**, Highest-Risk Dept (`Sales - 20.6%`), Highest-Risk Role (`Sales Rep - 39.8%`), Highest-Risk Age Group (`18–25 - 50.0%`).
 * **Visual Highlights:**
-  * **Overtime Impact:** Employees working overtime experience an attrition rate of **30.5%** — almost double the organization average.
-  * **Departure Rates by Role:** Sales Representatives and Laboratory Technicians face the steepest turnover rates.
-  * **Satisfaction Heatmap:** Cross-tabulation of job satisfaction vs. departure rates.
-  * **Decomposition Tree:** Interactive root-cause AI visual that dynamically breaks down attrition rates across user-selected dimensions (Department ➔ Salary Slab ➔ Age Group).
+  * **Overtime Burnout Disparity:** Employees logging overtime suffer a **30.5%** attrition rate compared to only **10.4%** for non-overtime peers.
+  * **Turnover by Role & Department:** Sales Representatives and Laboratory Technicians face the steepest departure rates.
+  * **AI Decomposition Tree:** Interactive multi-tier root-cause analysis allowing users to decompose attrition rates on the fly by selecting custom splits.
+  * **Satisfaction vs Attrition Matrix:** Cross-tabulation uncovering how low job satisfaction correlates with increased turnover velocity.
 
 ---
 
-### 4. 📇 Employee Profile (Context Card)
-A focused summary view designed for tooltip drill-through and granular cohort inspection.
+### 5. 📇 Interactive Tooltips & Q&A ("Ask data")
 
-![Employee Profile](assets/04_Employee_Profile.png)
+| Employee Profile Tooltip (`tt_EmployeeProfile`) | Natural Language Q&A ("Ask data") Modal |
+| :---: | :---: |
+| ![Tooltip Card](assets/04_Employee_Profile_Tooltip.png) | ![Q&A Modal](assets/09_Interactive_QA_Modal.png) |
 
-* Provides dynamic contextual KPIs when hovering over or slicing specific employee cohorts.
-* Displays standardized metric definitions (e.g., Attrition Rate formula, overtime denominator rules) for governance and consistency.
+* **Contextual Tooltip Card:** Dynamic hover card showing selected segment headcount, segment attrition rate, average monthly income, and multi-factor satisfaction scores (Job, Environment, Work-Life Balance) along with standardized data governance notes.
+* **Conversational Q&A Modal:** Interactive natural language interface allowing leaders to ask exploratory questions directly against the Power BI semantic model.
 
 ---
 
-## 💡 Key Strategic Insights
+## 💡 Key Strategic Insights & Recommendations
 
-| Finding | Observation | Recommended Strategic Action |
+| Strategic Area | Key Empirical Finding | Recommended Executive Action |
 | :--- | :--- | :--- |
-| 🔥 **Overtime Burnout** | Overtime employees experience a **30.5%** departure rate (vs baseline 16.1%). | Conduct workload audits, automate repetitive tasks, and enforce compensatory rest periods. |
-| 📉 **Sales Rep Turnover** | Sales Representatives show the highest turnover among all job titles. | Re-evaluate sales quota feasibility, enhance commission structures, and improve onboarding mentorship. |
-| 🎓 **Early Career Flight** | Age cohort `18–25` exhibits the highest generational attrition rate. | Implement clear fast-track promotion paths, continuous skill development, and peer buddy programs. |
-| 💰 **Entry-Level Compensation** | Employees in the `Upto 5k` salary slab have significantly higher departure propensity. | Benchmark entry-level salaries against regional industry percentiles to eliminate compensation vulnerability. |
+| 🔥 **Overtime Burnout** | Employees working overtime experience an attrition rate of **30.5%** — nearly triple the non-overtime rate (10.4%). | Conduct quarterly workload audits, cap compulsory overtime hours, and implement structured compensatory leave. |
+| 📉 **Sales Representative Retention** | Sales Representatives exhibit the highest role attrition rate (~**39.8%**). | Benchmark commission plans, evaluate territory quotas for feasibility, and strengthen frontline sales onboarding mentorship. |
+| 🎓 **Early-Career Turnover** | The youngest demographic bracket (`18–25`) experiences the highest turnover (~**50%**). | Establish structured graduate rotational programs, rapid 12-month promotion milestones, and dedicated mentor pairings. |
+| 💰 **Entry-Level Compensation** | Employees in the `Upto 5k` salary tier show significantly elevated exit rates. | Review entry-level wage competitiveness against local market benchmarks to eliminate compensation-driven flight risk. |
+| 🚗 **Commute Distance Friction** | Departure rates escalate among employees in the `21–29 km` commute distance band. | Implement flexible hybrid work policies, remote commuting stipends, or regional shuttle coordination. |
 
 ---
 
-## 📐 Data Model & DAX Measures
+### Detailed Department & Role Breakdown
 
-The solution utilizes a clean Semantic Model with explicit DAX measures for consistent metric governance across all visual layers:
+* **Sales Department:** Highest overall department attrition rate (**20.6%**). Primary drivers: quota pressure, variable sales incentives, and high travel frequency.
+* **Research & Development:** Moderate attrition rate (**13.9%**). Stable overall, but Laboratory Technicians represent an attrition hotspot (**23.9%**).
+* **Human Resources:** Smallest headcount cohort with an attrition rate of **19.0%**.
 
-### Core DAX Measures:
+---
+
+### Overtime & Tenure Correlation
+
+```
+┌──────────────────────────────────────────────────────────┐
+│  Workforce Segment          │  Observed Attrition Rate   │
+├─────────────────────────────┼────────────────────────────┤
+│  All Employees (Baseline)   │  16.1%                     │
+│  Non-Overtime Employees     │  10.4%  [Low Risk]         │
+│  Overtime Employees         │  30.5%  [CRITICAL RISK]    │
+│  Tenure: 0 Years (New)      │  35.5%  [Onboarding Risk]  │
+│  Tenure: 1–3 Years          │  22.8%  [Growth Plateau]   │
+│  Tenure: 5+ Years           │  ~9.2%  [High Stability]   │
+└──────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 📐 Data Model & Core DAX Measures
+
+The semantic model is defined in TMDL format with clean measure organization and explicit measure formatting:
+
 ```dax
-// Total Employees
-Total Employees = DISTINCTCOUNT ( HR_Analytics[EmpID] )
+// Total Headcount
+Total Employees = DISTINCTCOUNT(HR_Analytics[EmpID])
 
 // Active Workforce
-Active Employees = 
-CALCULATE ( 
+Current Employees = 
+CALCULATE(
     [Total Employees], 
-    HR_Analytics[Attrition] = "No" 
+    KEEPFILTERS(HR_Analytics[Attrition] = "No")
 )
 
-// Total Departures
-Total Attrition = 
-CALCULATE ( 
+// Recorded Departures
+Attrition Employees = 
+CALCULATE(
     [Total Employees], 
-    HR_Analytics[Attrition] = "Yes" 
+    KEEPFILTERS(HR_Analytics[Attrition] = "Yes")
 )
 
-// Attrition Rate Percentage
+// Baseline Attrition Rate
 Attrition Rate % = 
-DIVIDE ( [Total Attrition], [Total Employees], 0 )
+DIVIDE([Attrition Employees], [Total Employees], 0)
 
-// Overtime Attrition Impact
-Attrition Overtime % = 
-DIVIDE ( 
-    CALCULATE ( [Total Employees], HR_Analytics[Attrition] = "Yes", HR_Analytics[OverTime] = "Yes" ), 
-    [Total Attrition], 
-    0 
+// Overtime Turnover Rate
+Attrition Rate % OverTime = 
+DIVIDE(
+    CALCULATE([Attrition Employees], HR_Analytics[OverTime] = "Yes"),
+    CALCULATE([Total Employees], HR_Analytics[OverTime] = "Yes"),
+    0
 )
+
+// Average Compensation
+Average Monthly Income = AVERAGE(HR_Analytics[MonthlyIncome])
 
 // Average Tenure
-Average Tenure = 
-AVERAGEX ( 
-    VALUES ( HR_Analytics[EmpID] ), 
-    CALCULATE ( MAX ( HR_Analytics[YearsAtCompany] ) ) 
+Average Years at Company = AVERAGE(HR_Analytics[YearsAtCompany])
+
+// Satisfaction Index
+Average Job Satisfaction = AVERAGE(HR_Analytics[JobSatisfaction])
+
+// Salary Sorter (Prevents circular dependencies)
+Salary Sort = 
+SWITCH(
+    TRUE(), 
+    HR_Analytics[MonthlyIncome] <= 5000, 1, 
+    HR_Analytics[MonthlyIncome] <= 10000, 2, 
+    HR_Analytics[MonthlyIncome] <= 15000, 3, 
+    4
 )
 ```
 
@@ -152,37 +219,46 @@ AVERAGEX (
 ```
 hr-dashboard/
 ├── .gitignore
-├── README.md                                  # Executive documentation & architecture
-├── assets/                                    # High-resolution dashboard screenshots
-│   ├── 01_HR_Overview.png
-│   ├── 02_Current_Employees.png
-│   ├── 03_Attrition_Analysis.png
-│   └── 04_Employee_Profile.png
+├── README.md                                  # Complete executive documentation & visual showcase
+├── assets/                                    # High-resolution screenshots (Light, Dark, Tooltip, Q&A)
+│   ├── 00_Insight_Hub_Home_Light.png
+│   ├── 01_HR_Overview_Light.png
+│   ├── 02_Current_Employees_Light.png
+│   ├── 03_Attrition_Analysis_Light.png
+│   ├── 04_Employee_Profile_Tooltip.png
+│   ├── 05_HR_Overview_Dark.png
+│   ├── 06_Current_Employees_Dark.png
+│   ├── 07_Attrition_Analysis_Dark.png
+│   ├── 08_Insight_Hub_Home_Dark.png
+│   └── 09_Interactive_QA_Modal.png
 ├── Data/
-│   └── HR_Analytics.csv                       # Cleaned raw dataset (1,470 records)
-├── HR_Analytics_Dashboard.pbip                # Power BI Project file (Developer Mode)
-├── HR_Analytics_Dashboard.Report/             # Report layout, custom themes & visuals
-└── HR_Analytics_Dashboard.SemanticModel/      # TMDL model definition, tables & DAX measures
+│   └── HR_Analytics.csv                       # Cleaned raw dataset (1,470 employee records)
+├── HR360_Interactive.pbip                     # Power BI Project entry point (Developer Mode)
+├── HR360_Interactive.Report/                  # Report layouts, pages, visuals, and theme styles
+└── HR360_Interactive.SemanticModel/           # TMDL semantic model, DAX measures, and M queries
 ```
 
 ---
 
 ## 🚀 How to Open and Run
 
-### Prerequisites:
-* **Microsoft Power BI Desktop** (May 2023 release or newer with PBIP / TMDL support).
+### Prerequisites
+* **Microsoft Power BI Desktop** (May 2023 release or newer with PBIP / TMDL Developer Mode enabled).
 
-### Steps:
+### Steps
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/islamyasser424-design/hr-dashboard.git
    cd hr-dashboard
    ```
-2. **Open the project:**
-   * Double-click on `HR_Analytics_Dashboard.pbip` to launch the complete report and data model in Power BI Desktop.
+2. **Launch the project:**
+   * Double-click **`HR360_Interactive.pbip`**.
+   * Power BI Desktop will automatically load the semantic model and report definitions.
 3. **Explore & Interact:**
-   * Use the left navigation pane to seamlessly toggle between **HR Overview**, **Current Employees**, and **Attrition Analysis**.
-   * Use top slicers (Department, Gender, Job Role, Age Group, Marital Status, Business Travel, OverTime) to cross-filter all visualizations simultaneously.
+   * Start at the **HOME (Insight Hub)** page and use the interactive navigation buttons to explore **HR Overview**, **Current Employees**, or **Attrition Analysis**.
+   * Use the **Theme Toggle** button (`☀️ Light mode` / `🌙 Night mode`) to switch themes on any page.
+   * Click **"Ask data - Q&A"** to ask questions in plain English.
+   * Hover over charts and matrix rows to trigger the rich **`tt_EmployeeProfile`** tooltip card.
 
 ---
 
@@ -194,4 +270,4 @@ hr-dashboard/
 
 ---
 
-⭐ *If you find this project insightful or useful for your analytics portfolio, consider giving it a star!*
+⭐ *If you find this dashboard helpful or insightful for your HR Analytics projects, please star the repository!*

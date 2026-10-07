@@ -1,0 +1,394 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "18e1e1469ca99674ccac",
+  "position": {
+    "x": 1344,
+    "y": 328,
+    "z": 24000,
+    "height": 202,
+    "width": 542,
+    "tabOrder": 24000
+  },
+  "visual": {
+    "visualType": "deneb7E15AEF80B9E4D4F8E12924291ECE89A",
+    "query": {
+      "queryState": {
+        "dataset": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "HR_Analytics"
+                    }
+                  },
+                  "Property": "JobLevel"
+                }
+              },
+              "queryRef": "HR_Analytics.JobLevel",
+              "nativeQueryRef": "JobLevel"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "HR_Analytics"
+                    }
+                  },
+                  "Property": "Gender"
+                }
+              },
+              "queryRef": "HR_Analytics.Gender",
+              "nativeQueryRef": "Gender"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "HR_Analytics"
+                    }
+                  },
+                  "Property": "Average Monthly Income"
+                }
+              },
+              "queryRef": "HR_Analytics.Average Monthly Income",
+              "nativeQueryRef": "Average Monthly Income"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "vega": [
+        {
+          "properties": {
+            "jsonSpec": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\"$schema\":\"https://vega.github.io/schema/vega/v5.json\",\"background\":\"transparent\",\"autosize\":\"none\",\"padding\":{\"left\":42,\"right\":14,\"top\":32,\"bottom\":31},\"signals\":[{\"name\":\"width\",\"update\":\"max(40,pbiContainer.width-56)\"},{\"name\":\"height\",\"update\":\"max(40,pbiContainer.height-63)\"}],\"data\":[{\"name\":\"dataset\"}],\"marks\":[{\"name\":\"bars\",\"type\":\"rect\",\"from\":{\"data\":\"dataset\"},\"encode\":{\"update\":{\"fill\":{\"scale\":\"color\",\"field\":\"Gender\"},\"fillOpacity\":{\"signal\":\"datum.__selected__ == ''off'' ? 0.28 : 1\"},\"cursor\":{\"value\":\"pointer\"},\"tooltip\":{\"signal\":\"{\\\"JobLevel\\\":datum[\\\"JobLevel\\\"],\\\"Gender\\\":datum[\\\"Gender\\\"],\\\"Average Monthly Income\\\":format(datum[\\\"Average Monthly Income\\\"],\\\",.0f\\\")}\"},\"x\":{\"signal\":\"scale(\\\"category\\\",datum[\\\"JobLevel\\\"])+scale(\\\"group\\\",datum[\\\"Gender\\\"])\"},\"width\":{\"signal\":\"bandwidth(''group'')\"},\"y\":{\"scale\":\"value\",\"field\":\"Average Monthly Income\"},\"y2\":{\"scale\":\"value\",\"value\":0},\"cornerRadiusTopLeft\":{\"value\":10},\"cornerRadiusTopRight\":{\"value\":10}},\"hover\":{\"fillOpacity\":{\"value\":0.8}}}}],\"config\":{\"font\":\"Segoe UI\",\"axis\":{\"domain\":false,\"ticks\":false,\"labelColor\":\"#B8C8DA\",\"labelFontSize\":11,\"labelPadding\":7,\"title\":null,\"gridColor\":\"#2B4058\"},\"legend\":{\"labelColor\":\"#B8C8DA\",\"labelFontSize\":10,\"title\":null,\"symbolType\":\"circle\",\"symbolSize\":65}},\"scales\":[{\"name\":\"category\",\"type\":\"band\",\"domain\":{\"data\":\"dataset\",\"field\":\"JobLevel\",\"sort\":true},\"range\":[0,{\"signal\":\"width\"}],\"paddingInner\":0.38,\"paddingOuter\":0.16},{\"name\":\"value\",\"type\":\"linear\",\"domain\":{\"data\":\"dataset\",\"field\":\"Average Monthly Income\"},\"range\":[{\"signal\":\"height\"},0],\"zero\":true,\"nice\":true},{\"name\":\"color\",\"type\":\"ordinal\",\"domain\":[\"Female\",\"Male\"],\"range\":[\"#3895ED\",\"#27BDB1\"]},{\"name\":\"group\",\"type\":\"band\",\"domain\":{\"data\":\"dataset\",\"field\":\"Gender\",\"sort\":true},\"range\":[0,{\"signal\":\"bandwidth(''category'')\"}],\"padding\":0.12}],\"axes\":[{\"scale\":\"category\",\"orient\":\"bottom\",\"grid\":false,\"labelLimit\":100},{\"scale\":\"value\",\"orient\":\"left\",\"grid\":true,\"gridScale\":\"category\",\"tickCount\":3,\"format\":\"~s\",\"zindex\":0}],\"legends\":[{\"fill\":\"color\",\"orient\":\"none\",\"legendX\":-32,\"legendY\":-27,\"direction\":\"horizontal\",\"columns\":4,\"labelLimit\":145}]}'"
+                }
+              }
+            },
+            "jsonConfig": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{}'"
+                }
+              }
+            },
+            "provider": {
+              "expr": {
+                "Literal": {
+                  "Value": "'vega'"
+                }
+              }
+            },
+            "renderMode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'svg'"
+                }
+              }
+            },
+            "enableTooltips": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableContextMenu": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableContextMenuSelector": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableSelection": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "selectionMaxDataPoints": {
+              "expr": {
+                "Literal": {
+                  "Value": "250D"
+                }
+              }
+            },
+            "selectionMode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'simple'"
+                }
+              }
+            },
+            "version": {
+              "expr": {
+                "Literal": {
+                  "Value": "'6.4.0'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "stateManagement": [
+        {
+          "properties": {
+            "viewportHeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "127D"
+                }
+              }
+            },
+            "viewportWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "508D"
+                }
+              }
+            },
+            "supportFieldConfiguration": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\"JobLevel\":{\"highlight\":false,\"highlightStatus\":false,\"highlightComparator\":false,\"format\":false,\"formatted\":false,\"names\":false},\"Gender\":{\"highlight\":false,\"highlightStatus\":false,\"highlightComparator\":false,\"format\":false,\"formatted\":false,\"names\":false},\"Average Monthly Income\":{\"highlight\":false,\"highlightStatus\":false,\"highlightComparator\":false,\"format\":true,\"formatted\":true,\"names\":false}}'"
+                }
+              }
+            },
+            "denebMetaVersion": {
+              "expr": {
+                "Literal": {
+                  "Value": "'2'"
+                }
+              }
+            },
+            "consolidateFieldParameters": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "developer": [
+        {
+          "properties": {
+            "version": {
+              "expr": {
+                "Literal": {
+                  "Value": "'2.0.0.0'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Monthly income by level and gender'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E6EEF9'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#18283C'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#2C4058'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "22D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Monthly income by level and gender'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualTooltip": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "type": {
+              "expr": {
+                "Literal": {
+                  "Value": "'ReportPage'"
+                }
+              }
+            },
+            "section": {
+              "expr": {
+                "Literal": {
+                  "Value": "'tt_EmployeeProfile'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

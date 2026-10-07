@@ -2,7 +2,7 @@
 *.tmp
 *.temp
 *.pbitemp
-.pbi/localSettings.json
+**/.pbi/localSettings.json
 SecurityBindings
 
 # Operating System Files
